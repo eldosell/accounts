@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>eldosellaccounts</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#050914;color:#fff}
+header{position:sticky;top:0;background:#070d1cdd;backdrop-filter:blur(12px);
+border-bottom:1px solid #14264b;padding:18px 7%;display:flex;align-items:center;
+justify-content:space-between;z-index:10}
+.logo{font-size:23px;font-weight:800;color:#36a3ff}
+nav a{color:#cbd8ee;text-decoration:none;margin-left:25px}
+nav a:hover{color:#36a3ff}
+.hero{text-align:center;padding:100px 20px;background:
+radial-gradient(circle at 50% 0,#0754a955,transparent 55%)}
+.hero h1{font-size:clamp(42px,7vw,76px);margin-bottom:18px}
+.hero h1 span{color:#36a3ff}
+.hero p{color:#aebdd5;font-size:18px;max-width:650px;margin:auto}
+.code{display:inline-block;margin:28px 0;padding:14px 24px;border:1px solid #218cff;
+border-radius:10px;background:#0b1930;color:#58b5ff;font-weight:bold}
+.btn{display:inline-block;border:0;border-radius:9px;padding:14px 25px;background:#168cff;
+color:white;font-weight:bold;cursor:pointer;text-decoration:none}
+.btn:hover{background:#0874dc}
+section{padding:75px 7%;max-width:1200px;margin:auto}
+.title{text-align:center;font-size:34px;margin-bottom:40px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.card{background:#0b1426;border:1px solid #172d50;border-radius:16px;padding:28px;
+transition:.2s}
+.card:hover{transform:translateY(-5px);border-color:#258fff}
+.card h3{margin-bottom:12px}.price{font-size:29px;color:#45aaff;font-weight:bold;margin:20px 0}
+.card p{color:#9eafc8;min-height:55px;margin-bottom:20px}
+.checkout{max-width:600px;background:#0b1426;border:1px solid #172d50;border-radius:16px;
+padding:30px;margin:auto}
+label{display:block;margin:18px 0 8px;color:#cbd8ee}
+input,select{width:100%;padding:14px;background:#060c18;border:1px solid #29415f;
+border-radius:8px;color:#fff;font-size:15px}
+.notice{margin:18px 0;padding:14px;background:#0d1d34;border-left:3px solid #36a3ff;color:#b9c9df}
+.status{display:flex;justify-content:space-between;margin:25px 0;gap:8px}
+.step{flex:1;text-align:center;padding:10px 4px;border-radius:7px;background:#101c30;
+color:#71839e;font-size:12px}
+.step.active{background:#087bd5;color:#fff}
+.faq{max-width:800px;margin:auto}
+.faq div{padding:20px 0;border-bottom:1px solid #1b2c46}
+.faq h3{margin-bottom:8px}.faq p{color:#9eafc8}
+footer{text-align:center;padding:40px;background:#030710;color:#71839e}
+footer a{color:#36a3ff}
+.hidden{display:none}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">eldosellaccounts</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#how">How It Works</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://t.me/eldosupport" target="_blank">Contact Us</a>
+  </nav>
+</header>
+
+<main id="home">
+<section class="hero">
+  <h1>Welcome to <span>eldosellaccounts</span></h1>
+  <p>A simple marketplace for digital products with fast, crypto-based checkout.</p>
+  <div class="code">10% OFF — WELCOME10</div><br>
+  <a class="btn" href="#products">Shop Now</a>
+</section>
+
+<section id="products">
+  <h2 class="title">Featured Products</h2>
+  <div class="products">
+
+    <div class="card">
+      <h3>G2A Account</h3>
+      <p>Digital account product. Review all product details before purchasing.</p>
+      <div class="price">$15</div>
+      <button class="btn" onclick="choose('G2A Account',15)">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <h3>Eldorado Account</h3>
+      <p>Digital account product. Review all product details before purchasing.</p>
+      <div class="price">$15</div>
+      <button class="btn" onclick="choose('Eldorado Account',15)">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <h3>100 Genuine Reviews</h3>
+      <p>Only use this listing for authentic reviews from real customers.</p>
+      <div class="price">$5</div>
+      <button class="btn" onclick="choose('100 Genuine Reviews',5)">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <h3>300 Genuine Reviews</h3>
+      <p>Only use this listing for authentic reviews from real customers.</p>
+      <div class="price">$10</div>
+      <button class="btn" onclick="choose('300 Genuine Reviews',10)">Buy Now</button>
+    </div>
+
+  </div>
+</section>
+
+<section id="checkout">
+<h2 class="title">Checkout</h2>
+<div class="checkout">
+  <h3 id="productName">Select a product above</h3>
+  <div class="price" id="productPrice">$0</div>
+
+  <label>Email address</label>
+  <input id="email" type="email" placeholder="you@example.com">
+  <div class="notice">Your email is required for digital-product delivery.</div>
+
+  <label>Discount code</label>
+  <input id="discount" placeholder="WELCOME10">
+  <button class="btn" style="margin-top:10px" onclick="discount()">Apply Code</button>
+
+  <p id="total" style="margin-top:20px;color:#aebdd5">Total: $0.00</p>
+
+  <label>Cryptocurrency</label>
+  <select id="crypto">
+    <option value="">Choose BTC, LTC or SOL</option>
+    <option>BTC</option>
+    <option>LTC</option>
+    <option>SOL</option>
+  </select>
+
+  <div id="payment" class="notice hidden"></div>
+
+  <button class="btn" style="width:100%;margin-top:22px" onclick="showPayment()">
+    Continue to Payment
+  </button>
+
+  <div id="statusBox" class="hidden">
+    <div class="status">
+      <div class="step active">Pending</div>
+      <div class="step">Checking Blockchain</div>
+      <div class="step">Received</div>
+    </div>
+    <button class="btn" style="width:100%" onclick="sent()">I Have Sent</button>
+    <p id="statusText" style="text-align:center;margin-top:15px;color:#9eafc8"></p>
+  </div>
+</div>
+</section>
+
+<section id="how">
+<h2 class="title">How It Works</h2>
+<div class="faq">
+<div><h3>1. Choose a product</h3><p>Select the digital product you want.</p></div>
+<div><h3>2. Enter your email</h3><p>Provide an email address for delivery.</p></div>
+<div><h3>3. Select crypto</h3><p>Choose BTC, LTC, or SOL and follow the payment instructions.</p></div>
+<div><h3>4. Payment verification</h3><p>Orders should only be marked received after the transaction is actually verified.</p></div>
+</div>
+</section>
+
+<section id="faq">
+<h2 class="title">FAQ</h2>
+<div class="faq">
+<div><h3>Which cryptocurrencies are accepted?</h3><p>BTC, LTC, and SOL.</p></div>
+<div><h3>How is delivery handled?</h3><p>Digital delivery information is provided after confirmed payment.</p></div>
+<div><h3>Need help?</h3><p>Contact support through Telegram: @eldosupport</p></div>
+</div>
+</section>
+</main>
+
+<footer>
+<p>© 2026 eldosellaccounts</p>
+<p style="margin-top:10px"><a href="https://t.me/eldosupport" target="_blank">@eldosupport</a></p>
+</footer>
+
+<script>
+let product="",price=0,finalPrice=0;
+
+function choose(name,cost){
+ product=name; price=cost; finalPrice=cost;
+ document.getElementById("productName").textContent=name;
+ document.getElementById("productPrice").textContent="$"+cost;
+ document.getElementById("total").textContent="Total: $"+cost.toFixed(2);
+ document.getElementById("statusBox").classList.add("hidden");
+ location.hash="checkout";
+}
+
+function discount(){
+ if(document.getElementById("discount").value.trim().toUpperCase()==="WELCOME10"){
+   finalPrice=price*.90;
+   document.getElementById("total").textContent="Total: $"+finalPrice.toFixed(2)+" — 10% discount applied";
+ }else{
+   alert("Invalid or already-used discount code.");
+ }
+}
+
+function showPayment(){
+ const email=document.getElementById("email").value.trim();
+ const crypto=document.getElementById("crypto").value;
+ if(!product)return alert("Please select a product.");
+ if(!email||!email.includes("@"))return alert("Please enter a valid email.");
+ if(!crypto)return alert("Please choose a cryptocurrency.");
+
+ const payment=document.getElementById("payment");
+ payment.classList.remove("hidden");
+ payment.innerHTML="<b>Payment selected: "+crypto+"</b><br><br>"+
+ "Amount due: <b>$"+finalPrice.toFixed(2)+"</b><br>"+
+ "Configure your verified payment address and live exchange-rate calculation on your secure backend.";
+
+ document.getElementById("statusBox").classList.remove("hidden");
+}
+
+function sent(){
+ document.getElementById("statusText").textContent=
+ "Payment submitted for verification. This page will not mark the order as received until payment is actually confirmed.";
+}
+</script>
+
+</body>
+</html>
