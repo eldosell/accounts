@@ -10,341 +10,390 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
-font-family:Inter,Arial,sans-serif;
-background:#050914;
-color:#fff;
-font-weight:700;
+  font-family:Inter,Arial,sans-serif;
+  background:#050914;
+  color:#fff;
+  font-weight:700;
 }
 
 header{
-position:sticky;
-top:0;
-z-index:999;
-background:#070d1cf7;
-border-bottom:1px solid #18345c;
-padding:18px 6%;
-display:flex;
-justify-content:space-between;
-align-items:center;
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:#070d1cf7;
+  border-bottom:1px solid #18345c;
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .logo{
-font-size:21px;
-color:#36a3ff;
-white-space:nowrap;
+  font-size:21px;
+  color:#36a3ff;
+  white-space:nowrap;
 }
 
 nav{
-display:flex;
-align-items:center;
-gap:20px;
+  display:flex;
+  align-items:center;
+  gap:20px;
 }
 
-nav a,.dropbtn{
-color:#d9e5f5;
-text-decoration:none;
-font:700 14px Inter,Arial,sans-serif;
-background:none;
-border:0;
-cursor:pointer;
+nav a,
+.dropbtn{
+  color:#d9e5f5;
+  text-decoration:none;
+  font:700 14px Inter,Arial,sans-serif;
+  background:none;
+  border:0;
+  cursor:pointer;
 }
 
-nav a:hover,.dropbtn:hover{
-color:#36a3ff;
+nav a:hover,
+.dropbtn:hover{
+  color:#36a3ff;
 }
 
 .dropdown{
-position:relative;
+  position:relative;
 }
 
 .dropbtn{
-display:flex;
-align-items:center;
-gap:6px;
+  display:flex;
+  align-items:center;
+  gap:6px;
 }
 
 .dropdown-content{
-display:none;
-position:absolute;
-top:35px;
-right:0;
-min-width:220px;
-background:#0b1426;
-border:1px solid #244568;
-border-radius:10px;
-padding:8px;
-box-shadow:0 15px 40px #0008;
+  display:none;
+  position:absolute;
+  top:35px;
+  right:0;
+  min-width:220px;
+  background:#0b1426;
+  border:1px solid #244568;
+  border-radius:10px;
+  padding:8px;
+  box-shadow:0 15px 40px #0008;
 }
 
 .dropdown-content.show{
-display:block;
+  display:block;
 }
 
 .dropdown-content a{
-display:block;
-padding:12px;
-border-radius:7px;
-color:#d9e5f5;
-text-decoration:none;
-white-space:nowrap;
+  display:block;
+  padding:12px;
+  border-radius:7px;
+  color:#d9e5f5;
+  text-decoration:none;
+  white-space:nowrap;
 }
 
 .dropdown-content a:hover{
-background:#10233d;
-color:#36a3ff;
+  background:#10233d;
+  color:#36a3ff;
 }
 
 .page{
-display:none;
+  display:none;
 }
 
 .page.active{
-display:block;
+  display:block;
 }
 
 .hero{
-text-align:center;
-padding:110px 20px 95px;
-background:radial-gradient(circle at 50% 0,#0969d955,transparent 60%);
+  text-align:center;
+  padding:110px 20px 95px;
+  background:radial-gradient(circle at 50% 0,#0969d955,transparent 60%);
 }
 
 .hero h1{
-font-size:clamp(42px,7vw,72px);
-line-height:1.05;
-margin-bottom:20px;
+  font-size:clamp(42px,7vw,72px);
+  line-height:1.05;
+  margin-bottom:20px;
 }
 
 .blue{
-color:#36a3ff;
+  color:#36a3ff;
 }
 
 .hero p{
-color:#aebdd5;
-max-width:650px;
-margin:auto;
-line-height:1.7;
-font-weight:600;
+  color:#aebdd5;
+  max-width:650px;
+  margin:auto;
+  line-height:1.7;
+  font-weight:600;
 }
 
 .discount{
-display:inline-block;
-margin:28px 0;
-padding:14px 24px;
-background:#0b1930;
-border:1px solid #218cff;
-border-radius:10px;
-color:#58b5ff;
+  display:inline-block;
+  margin:28px 0;
+  padding:14px 24px;
+  background:#0b1930;
+  border:1px solid #218cff;
+  border-radius:10px;
+  color:#58b5ff;
 }
 
 .btn{
-display:inline-block;
-border:0;
-border-radius:9px;
-padding:14px 23px;
-background:#168cff;
-color:#fff;
-font:800 14px Inter,Arial,sans-serif;
-cursor:pointer;
-text-decoration:none;
+  display:inline-block;
+  border:0;
+  border-radius:9px;
+  padding:14px 23px;
+  background:#168cff;
+  color:#fff;
+  font:800 14px Inter,Arial,sans-serif;
+  cursor:pointer;
+  text-decoration:none;
 }
 
 .btn:hover{
-background:#0874dc;
+  background:#0874dc;
+}
+
+.btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
 }
 
 section{
-max-width:1200px;
-margin:auto;
-padding:70px 6%;
+  max-width:1200px;
+  margin:auto;
+  padding:70px 6%;
 }
 
 .title{
-text-align:center;
-font-size:34px;
-margin-bottom:40px;
+  text-align:center;
+  font-size:34px;
+  margin-bottom:40px;
 }
 
 .products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;
 }
 
 .card{
-background:#0b1426;
-border:1px solid #172d50;
-border-radius:16px;
-padding:27px;
-transition:.2s;
+  background:#0b1426;
+  border:1px solid #172d50;
+  border-radius:16px;
+  padding:27px;
+  transition:.2s;
 }
 
 .card:hover{
-transform:translateY(-4px);
-border-color:#258fff;
+  transform:translateY(-4px);
+  border-color:#258fff;
 }
 
 .card h3{
-font-size:19px;
+  font-size:19px;
 }
 
 .card p{
-color:#9eafc8;
-line-height:1.6;
-margin:13px 0;
-font-weight:600;
+  color:#9eafc8;
+  line-height:1.6;
+  margin:13px 0;
+  font-weight:600;
 }
 
 .price{
-color:#45aaff;
-font-size:28px;
-margin:18px 0;
+  color:#45aaff;
+  font-size:28px;
+  margin:18px 0;
 }
 
 .product-image{
-width:100%;
-height:170px;
-object-fit:contain;
-border-radius:10px;
-background:#060c18;
-margin-bottom:18px;
+  width:100%;
+  height:170px;
+  object-fit:contain;
+  border-radius:10px;
+  background:#060c18;
+  margin-bottom:18px;
 }
 
 .checkout{
-max-width:650px;
-margin:auto;
-padding:32px;
-background:#0b1426;
-border:1px solid #172d50;
-border-radius:17px;
+  max-width:650px;
+  margin:auto;
+  padding:32px;
+  background:#0b1426;
+  border:1px solid #172d50;
+  border-radius:17px;
 }
 
 label{
-display:block;
-margin:20px 0 8px;
+  display:block;
+  margin:20px 0 8px;
 }
 
-input,select{
-width:100%;
-padding:14px;
-background:#060c18;
-border:1px solid #29415f;
-border-radius:9px;
-color:#fff;
-font:700 14px Inter,Arial,sans-serif;
-outline:none;
+input,
+select{
+  width:100%;
+  padding:14px;
+  background:#060c18;
+  border:1px solid #29415f;
+  border-radius:9px;
+  color:#fff;
+  font:700 14px Inter,Arial,sans-serif;
+  outline:none;
 }
 
-input:focus,select:focus{
-border-color:#258fff;
+input:focus,
+select:focus{
+  border-color:#258fff;
 }
 
 .notice{
-margin:17px 0;
-padding:15px;
-background:#0d1d34;
-border-left:3px solid #36a3ff;
-color:#b9c9df;
-line-height:1.6;
-font-weight:600;
+  margin:17px 0;
+  padding:15px;
+  background:#0d1d34;
+  border-left:3px solid #36a3ff;
+  color:#b9c9df;
+  line-height:1.6;
+  font-weight:600;
+}
+
+.error-message{
+  display:none;
+  margin-top:12px;
+  padding:13px 15px;
+  background:#32131a;
+  border:1px solid #a83248;
+  border-left:4px solid #ff4264;
+  border-radius:8px;
+  color:#ff9bad;
+  line-height:1.5;
+  font-size:13px;
+}
+
+.error-message.show{
+  display:block;
+}
+
+.success-message{
+  display:none;
+  margin-top:12px;
+  padding:13px 15px;
+  background:#0b3021;
+  border:1px solid #168b5b;
+  border-left:4px solid #22d889;
+  border-radius:8px;
+  color:#7ff0b9;
+  line-height:1.5;
+  font-size:13px;
+}
+
+.success-message.show{
+  display:block;
 }
 
 .amount{
-font-size:25px;
-color:#58b5ff;
-word-break:break-word;
-display:block;
-margin:7px 0;
+  font-size:25px;
+  color:#58b5ff;
+  word-break:break-word;
+  display:block;
+  margin:7px 0;
 }
 
 .address{
-word-break:break-all;
-color:#58b5ff;
-background:#060c18;
-padding:13px;
-border-radius:8px;
-margin-top:10px;
-font-size:13px;
-line-height:1.5;
+  word-break:break-all;
+  color:#58b5ff;
+  background:#060c18;
+  padding:13px;
+  border-radius:8px;
+  margin-top:10px;
+  font-size:13px;
+  line-height:1.5;
 }
 
 .smallbtn{
-margin-top:10px;
-background:#172c4b;
+  margin-top:10px;
+  background:#172c4b;
 }
 
 .status{
-display:flex;
-gap:8px;
-margin:25px 0;
+  display:flex;
+  gap:8px;
+  margin:25px 0;
 }
 
 .step{
-flex:1;
-text-align:center;
-padding:12px 5px;
-border-radius:7px;
-background:#101c30;
-color:#687c99;
-font-size:11px;
+  flex:1;
+  text-align:center;
+  padding:12px 5px;
+  border-radius:7px;
+  background:#101c30;
+  color:#687c99;
+  font-size:11px;
 }
 
 .step.active{
-background:#087bd5;
-color:#fff;
+  background:#087bd5;
+  color:#fff;
 }
 
 .hidden{
-display:none!important;
+  display:none!important;
 }
 
 footer{
-text-align:center;
-padding:45px 20px;
-background:#030710;
-color:#71839e;
+  text-align:center;
+  padding:45px 20px;
+  background:#030710;
+  color:#71839e;
 }
 
 footer a{
-color:#36a3ff;
-text-decoration:none;
+  color:#36a3ff;
+  text-decoration:none;
 }
 
 @media(max-width:750px){
 
-header{
-flex-direction:column;
-gap:15px;
-}
+  header{
+    flex-direction:column;
+    gap:15px;
+  }
 
-nav{
-flex-wrap:wrap;
-justify-content:center;
-gap:12px;
-}
+  nav{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+  }
 
-.dropdown-content{
-position:absolute;
-right:auto;
-left:50%;
-transform:translateX(-50%);
-}
+  .dropdown-content{
+    position:absolute;
+    right:auto;
+    left:50%;
+    transform:translateX(-50%);
+  }
 
-.hero{
-padding-top:75px;
-}
+  .hero{
+    padding-top:75px;
+  }
 
-.checkout{
-padding:23px;
-}
+  .checkout{
+    padding:23px;
+  }
 
-.status{
-flex-direction:column;
-}
+  .status{
+    flex-direction:column;
+  }
 
 }
 </style>
@@ -384,11 +433,6 @@ Roblox → Robux
 <a href="#"
 onclick="showPage('limiteds');closeProducts();return false;">
 Roblox → Limiteds
-</a>
-
-<a href="#"
-onclick="showPage('vbucks');closeProducts();return false;">
-Fortnite → V-Bucks
 </a>
 
 <a href="#"
@@ -456,16 +500,16 @@ What are you looking for?
 
 <div class="card">
 
-<h3>Roblox</h3>
+<h3>Robux</h3>
 
 <p>
-Choose Robux or browse the Limiteds section.
+Choose the amount of Robux you want and continue to checkout.
 </p>
 
 <button
 class="btn"
 onclick="showPage('robux')">
-View Roblox
+View Robux
 </button>
 
 </div>
@@ -473,16 +517,16 @@ View Roblox
 
 <div class="card">
 
-<h3>Fortnite</h3>
+<h3>Limiteds</h3>
 
 <p>
-Purchase V-Bucks by entering your desired quantity.
+Browse the available Headless, Dominus and Korblox listings.
 </p>
 
 <button
 class="btn"
-onclick="showPage('vbucks')">
-View Fortnite
+onclick="showPage('limiteds')">
+View Limiteds
 </button>
 
 </div>
@@ -544,6 +588,11 @@ placeholder="Example: 10000"
 oninput="calculateRobux()"
 >
 
+<div
+id="robuxError"
+class="error-message">
+</div>
+
 <div class="notice">
 
 Minimum purchase: <strong>$10</strong>.
@@ -563,68 +612,6 @@ $0.00
 <button
 class="btn"
 onclick="checkoutRobux()">
-Continue to Checkout
-</button>
-
-</div>
-
-</section>
-
-</div>
-
-
-<!-- VBUCKS -->
-
-<div id="vbucks" class="page">
-
-<section>
-
-<h2 class="title">
-V-Bucks
-</h2>
-
-<div class="checkout">
-
-<h3>
-Fortnite V-Bucks
-</h3>
-
-<p style="color:#9eafc8;margin-top:10px">
-$2.00 per 1,000 V-Bucks
-</p>
-
-<label for="vbucksQty">
-How many V-Bucks do you want?
-</label>
-
-<input
-id="vbucksQty"
-type="number"
-min="5000"
-step="1"
-placeholder="Example: 10000"
-oninput="calculateVbucks()"
->
-
-<div class="notice">
-
-Minimum purchase: <strong>$10</strong>.
-
-<br><br>
-
-Your total:
-
-<span
-id="vbucksTotal"
-class="amount">
-$0.00
-</span>
-
-</div>
-
-<button
-class="btn"
-onclick="checkoutVbucks()">
 Continue to Checkout
 </button>
 
@@ -806,6 +793,18 @@ $0.00
 </div>
 
 
+<div
+id="siteError"
+class="error-message">
+</div>
+
+
+<div
+id="siteSuccess"
+class="success-message">
+</div>
+
+
 <label for="email">
 Email Address
 </label>
@@ -815,8 +814,12 @@ id="email"
 type="email"
 placeholder="you@example.com"
 autocomplete="email"
-required
 >
+
+<div
+id="emailError"
+class="error-message">
+</div>
 
 <div class="notice">
 Your email is required for digital delivery.
@@ -838,6 +841,11 @@ style="margin-top:10px"
 onclick="applyDiscount()">
 Apply Code
 </button>
+
+<div
+id="discountError"
+class="error-message">
+</div>
 
 
 <label for="crypto">
@@ -865,6 +873,11 @@ SOL
 </option>
 
 </select>
+
+<div
+id="cryptoError"
+class="error-message">
+</div>
 
 
 <div
@@ -971,7 +984,62 @@ let orderId=null;
 let discountUsed=false;
 
 
-/* PRODUCT DROPDOWN */
+/* =========================
+   ON-SITE MESSAGES
+========================= */
+
+function showError(id,message){
+
+const box=document.getElementById(id);
+
+if(!box)return;
+
+box.textContent="⚠ "+message;
+box.classList.add("show");
+
+}
+
+
+function clearError(id){
+
+const box=document.getElementById(id);
+
+if(!box)return;
+
+box.textContent="";
+box.classList.remove("show");
+
+}
+
+
+function clearAllErrors(){
+
+[
+"siteError",
+"emailError",
+"discountError",
+"cryptoError",
+"robuxError"
+].forEach(clearError);
+
+}
+
+
+function showSuccess(id,message){
+
+const box=document.getElementById(id);
+
+if(!box)return;
+
+box.textContent="✓ "+message;
+box.classList.add("show");
+
+}
+
+
+/* =========================
+   PRODUCTS DROPDOWN
+========================= */
 
 function toggleProducts(event){
 
@@ -1021,7 +1089,9 @@ closeProducts();
 });
 
 
-/* PAGE NAVIGATION */
+/* =========================
+   PAGE NAVIGATION
+========================= */
 
 function showPage(id){
 
@@ -1047,9 +1117,13 @@ behavior:"smooth"
 }
 
 
-/* ROBUX */
+/* =========================
+   ROBUX
+========================= */
 
 function calculateRobux(){
+
+clearError("robuxError");
 
 const qty=
 Number(
@@ -1062,6 +1136,7 @@ document.getElementById("robuxTotal")
 .textContent="$0.00";
 
 return;
+
 }
 
 const price=
@@ -1070,12 +1145,23 @@ qty/1000*1.75;
 document.getElementById("robuxTotal")
 .textContent=
 "$"+price.toFixed(2);
+
+if(price<10){
+
+showError(
+"robuxError",
+"The minimum Robux purchase is $10."
+);
+
+}
 
 }
 
 
 function checkoutRobux(){
 
+clearError("robuxError");
+
 const qty=
 Number(
 document.getElementById("robuxQty").value
@@ -1083,9 +1169,13 @@ document.getElementById("robuxQty").value
 
 if(!qty || qty<=0){
 
-alert("Enter the amount of Robux you want.");
+showError(
+"robuxError",
+"Please enter how many Robux you want."
+);
 
 return;
+
 }
 
 const price=
@@ -1093,90 +1183,39 @@ qty/1000*1.75;
 
 if(price<10){
 
-alert("The minimum Robux purchase is $10.");
+showError(
+"robuxError",
+"The minimum Robux purchase is $10."
+);
 
 return;
+
 }
 
 product=
 qty+" Robux";
 
-basePrice=price;
-finalPrice=price;
+basePrice=
+price;
+
+finalPrice=
+price;
 
 prepareCheckout();
 
 }
 
 
-/* VBUCKS */
-
-function calculateVbucks(){
-
-const qty=
-Number(
-document.getElementById("vbucksQty").value
-);
-
-if(!qty){
-
-document.getElementById("vbucksTotal")
-.textContent="$0.00";
-
-return;
-}
-
-const price=
-qty/1000*2;
-
-document.getElementById("vbucksTotal")
-.textContent=
-"$"+price.toFixed(2);
-
-}
-
-
-function checkoutVbucks(){
-
-const qty=
-Number(
-document.getElementById("vbucksQty").value
-);
-
-if(!qty || qty<=0){
-
-alert("Enter the amount of V-Bucks you want.");
-
-return;
-}
-
-const price=
-qty/1000*2;
-
-if(price<10){
-
-alert("The minimum V-Bucks purchase is $10.");
-
-return;
-}
-
-product=
-qty+" V-Bucks";
-
-basePrice=price;
-finalPrice=price;
-
-prepareCheckout();
-
-}
-
-
-/* FIXED PRODUCTS */
+/* =========================
+   FIXED PRODUCTS
+========================= */
 
 function selectFixed(name,price){
 
 product=name;
+
 basePrice=price;
+
 finalPrice=price;
 
 prepareCheckout();
@@ -1184,24 +1223,32 @@ prepareCheckout();
 }
 
 
-/* LIMITEDS */
-
 function selectLimited(name){
 
-alert(
+showError(
+"siteError",
 name+
-" selected. Add its authorized price before accepting payment."
+" is selected, but its authorized price has not been configured yet."
 );
+
+showPage("checkout");
 
 }
 
 
-/* CHECKOUT */
+/* =========================
+   CHECKOUT
+========================= */
 
 function prepareCheckout(){
 
 discountUsed=false;
 orderId=null;
+
+clearAllErrors();
+
+document.getElementById("siteSuccess")
+.classList.remove("show");
 
 document.getElementById("checkoutProduct")
 .textContent=product;
@@ -1223,38 +1270,58 @@ document.getElementById("sentButton")
 document.getElementById("statusBox")
 .classList.add("hidden");
 
+document.getElementById("email").value="";
+
 showPage("checkout");
 
 }
 
 
-/* DISCOUNT */
+/* =========================
+   DISCOUNT
+========================= */
 
 function applyDiscount(){
 
+clearError("discountError");
+
 if(!product){
 
-alert("Choose a product first.");
+showError(
+"discountError",
+"Please choose a product first."
+);
 
 return;
+
 }
 
 if(discountUsed){
 
-alert("The discount has already been applied.");
+showError(
+"discountError",
+"This discount has already been applied."
+);
 
 return;
+
 }
 
 const code=
 document.getElementById("discount")
-.value.trim().toUpperCase();
+.value
+.trim()
+.toUpperCase();
 
 if(code!=="WELCOME10"){
 
-alert("Invalid discount code.");
+showError(
+"discountError",
+"That discount code is not valid."
+);
 
 return;
+
 }
 
 finalPrice=
@@ -1266,14 +1333,23 @@ document.getElementById("checkoutPrice")
 .textContent=
 "$"+finalPrice.toFixed(2);
 
+showSuccess(
+"siteSuccess",
+"10% discount applied successfully."
+);
+
 showCryptoPayment();
 
 }
 
 
-/* CRYPTO */
+/* =========================
+   CRYPTO
+========================= */
 
 async function showCryptoPayment(){
+
+clearError("cryptoError");
 
 const crypto=
 document.getElementById("crypto").value;
@@ -1317,7 +1393,9 @@ const cryptoAmount=
 finalPrice/usd;
 
 const decimals=
-crypto==="SOL"?6:8;
+crypto==="SOL"
+?6
+:8;
 
 const amount=
 cryptoAmount.toFixed(decimals);
@@ -1371,6 +1449,7 @@ $${Number(usd).toLocaleString()}
 per ${crypto}.
 
 </div>
+
 `;
 
 document.getElementById("sentButton")
@@ -1378,15 +1457,21 @@ document.getElementById("sentButton")
 
 }catch(error){
 
-box.innerHTML=
-"Unable to load the cryptocurrency price. Please try again.";
+showError(
+"cryptoError",
+"Unable to load the current cryptocurrency price. Please try again."
+);
+
+box.classList.add("hidden");
 
 }
 
 }
 
 
-/* COPY */
+/* =========================
+   COPY
+========================= */
 
 async function copyText(text){
 
@@ -1394,12 +1479,16 @@ try{
 
 await navigator.clipboard.writeText(text);
 
-alert("Copied.");
+showSuccess(
+"siteSuccess",
+"Copied to your clipboard."
+);
 
 }catch(error){
 
-alert(
-"Copy failed. Please copy it manually."
+showError(
+"siteError",
+"Copy failed. Please copy the value manually."
 );
 
 }
@@ -1407,9 +1496,13 @@ alert(
 }
 
 
-/* CREATE ORDER */
+/* =========================
+   CREATE ORDER
+========================= */
 
 async function createOrder(){
+
+clearAllErrors();
 
 const email=
 document.getElementById("email")
@@ -1419,32 +1512,65 @@ const crypto=
 document.getElementById("crypto")
 .value;
 
+let valid=true;
+
+
 if(!product){
 
-alert("Choose a product first.");
+showError(
+"siteError",
+"Please choose a product first."
+);
 
-return;
+valid=false;
+
 }
 
-if(!email || !email.includes("@")){
 
-alert("Enter a valid email address.");
+if(!email){
 
-return;
+showError(
+"emailError",
+"Please enter your email address."
+);
+
+valid=false;
+
+}else if(!email.includes("@")){
+
+showError(
+"emailError",
+"Please enter a valid email address."
+);
+
+valid=false;
+
 }
+
 
 if(!crypto){
 
-alert("Select BTC, LTC, or SOL.");
+showError(
+"cryptoError",
+"Please select BTC, LTC, or SOL."
+);
 
-return;
+valid=false;
+
 }
+
+
+if(!valid)
+return;
+
 
 const button=
 document.getElementById("sentButton");
 
 button.disabled=true;
-button.textContent="Creating Order...";
+
+button.textContent=
+"Creating Order...";
 
 
 try{
@@ -1462,9 +1588,13 @@ headers:{
 body:JSON.stringify({
 
 product:product,
+
 amount:finalPrice,
+
 crypto:crypto,
+
 email:email,
+
 wallet:wallets[crypto]
 
 })
@@ -1481,13 +1611,14 @@ if(!response.ok){
 
 throw new Error(
 data.error||
-"Unable to create order."
+"Unable to create the order."
 );
 
 }
 
 
-orderId=data.orderId;
+orderId=
+data.orderId;
 
 
 document.getElementById("statusBox")
@@ -1514,7 +1645,11 @@ pollOrderStatus();
 
 }catch(error){
 
-alert(error.message);
+showError(
+"siteError",
+error.message||
+"Something went wrong while creating your order."
+);
 
 button.disabled=false;
 
@@ -1526,7 +1661,9 @@ button.textContent=
 }
 
 
-/* STATUS */
+/* =========================
+   ORDER STATUS
+========================= */
 
 async function pollOrderStatus(){
 
