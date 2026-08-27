@@ -1,174 +1,189 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>eldosellaccounts</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AnythingGameStore</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
-  font-family:"Inter",Arial,sans-serif;
+  font-family:Inter,Arial,sans-serif;
   background:#050914;
   color:#fff;
-  font-weight:700;
+  font-weight:700
 }
 
 header{
   position:sticky;
   top:0;
   z-index:100;
-  padding:18px 6%;
-  background:rgba(7,13,28,.96);
-  backdrop-filter:blur(14px);
+  background:#070d1cf5;
   border-bottom:1px solid #18345c;
+  padding:18px 6%;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center
 }
 
 .logo{
-  font-size:22px;
   color:#36a3ff;
-  white-space:nowrap;
+  font-size:21px;
+  white-space:nowrap
 }
 
 nav{
   display:flex;
-  gap:22px;
+  align-items:center;
+  gap:20px
 }
 
-nav a{
+nav a,.dropbtn{
   color:#d9e5f5;
   text-decoration:none;
-  font-size:14px;
+  font:700 14px Inter,Arial;
+  background:none;
+  border:0;
+  cursor:pointer
 }
 
-nav a:hover{
-  color:#36a3ff;
+nav a:hover,.dropbtn:hover{color:#36a3ff}
+
+.dropdown{position:relative}
+
+.dropdown-content{
+  display:none;
+  position:absolute;
+  top:28px;
+  right:0;
+  min-width:190px;
+  background:#0b1426;
+  border:1px solid #244568;
+  border-radius:10px;
+  padding:8px;
+  box-shadow:0 15px 40px #0008
 }
+
+.dropdown-content a{
+  display:block;
+  padding:11px;
+  border-radius:7px
+}
+
+.dropdown-content a:hover{background:#10233d}
+
+.dropdown:hover .dropdown-content{display:block}
+
+.page{display:none}
+
+.page.active{display:block}
 
 .hero{
   text-align:center;
   padding:110px 20px 95px;
-  background:
-    radial-gradient(circle at 50% 0,#0969d955,transparent 58%);
+  background:radial-gradient(circle at 50% 0,#0969d955,transparent 60%)
 }
 
 .hero h1{
-  font-size:clamp(40px,7vw,72px);
-  margin-bottom:20px;
+  font-size:clamp(42px,7vw,72px);
   line-height:1.05;
+  margin-bottom:20px
 }
 
-.hero h1 span{
-  color:#36a3ff;
-}
+.blue{color:#36a3ff}
 
 .hero p{
   color:#aebdd5;
-  max-width:680px;
+  max-width:650px;
   margin:auto;
   line-height:1.7;
-  font-weight:600;
+  font-weight:600
 }
 
 .discount{
   display:inline-block;
   margin:28px 0;
   padding:14px 24px;
+  background:#0b1930;
   border:1px solid #218cff;
   border-radius:10px;
-  background:#0b1930;
-  color:#58b5ff;
+  color:#58b5ff
 }
 
 .btn{
+  display:inline-block;
   border:0;
   border-radius:9px;
   padding:14px 23px;
   background:#168cff;
   color:#fff;
-  font-weight:800;
+  font:800 14px Inter,Arial;
   cursor:pointer;
-  font-family:inherit;
-  transition:.2s;
+  text-decoration:none
 }
 
-.btn:hover{
-  background:#0874dc;
-  transform:translateY(-1px);
-}
-
-.btn:disabled{
-  opacity:.6;
-  cursor:not-allowed;
-  transform:none;
-}
+.btn:hover{background:#0874dc}
 
 section{
-  padding:75px 6%;
   max-width:1200px;
   margin:auto;
+  padding:70px 6%
 }
 
 .title{
   text-align:center;
   font-size:34px;
-  margin-bottom:40px;
+  margin-bottom:40px
 }
 
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(235px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px
 }
 
 .card{
   background:#0b1426;
   border:1px solid #172d50;
   border-radius:16px;
-  padding:28px;
-  transition:.2s;
+  padding:27px;
+  transition:.2s
 }
 
 .card:hover{
-  transform:translateY(-5px);
-  border-color:#258fff;
-  box-shadow:0 12px 35px #006eff18;
+  transform:translateY(-4px);
+  border-color:#258fff
 }
 
-.card h3{
-  font-size:19px;
-}
+.card h3{font-size:19px}
 
 .card p{
   color:#9eafc8;
   line-height:1.6;
-  margin:14px 0;
-  min-height:70px;
-  font-weight:600;
+  margin:13px 0;
+  font-weight:600
 }
 
 .price{
-  font-size:28px;
   color:#45aaff;
-  margin:18px 0;
+  font-size:28px;
+  margin:18px 0
+}
+
+.product-image{
+  width:100%;
+  height:170px;
+  object-fit:contain;
+  border-radius:10px;
+  background:#060c18;
+  margin-bottom:18px
 }
 
 .checkout{
@@ -177,36 +192,27 @@ section{
   padding:32px;
   background:#0b1426;
   border:1px solid #172d50;
-  border-radius:17px;
-  box-shadow:0 15px 50px #00000025;
-}
-
-.checkout h3{
-  font-size:21px;
+  border-radius:17px
 }
 
 label{
   display:block;
-  margin:20px 0 8px;
+  margin:20px 0 8px
 }
 
-input,
-select{
+input,select{
   width:100%;
   padding:14px;
   background:#060c18;
   border:1px solid #29415f;
   border-radius:9px;
   color:#fff;
-  font-family:inherit;
-  font-weight:700;
-  outline:none;
+  font:700 14px Inter,Arial;
+  outline:none
 }
 
-input:focus,
-select:focus{
-  border-color:#258fff;
-  box-shadow:0 0 0 2px #258fff20;
+input:focus,select:focus{
+  border-color:#258fff
 }
 
 .notice{
@@ -216,15 +222,15 @@ select:focus{
   border-left:3px solid #36a3ff;
   color:#b9c9df;
   line-height:1.6;
-  font-weight:600;
+  font-weight:600
 }
 
-.crypto-amount{
-  display:block;
-  margin-top:8px;
+.amount{
   font-size:25px;
   color:#58b5ff;
   word-break:break-word;
+  display:block;
+  margin:7px 0
 }
 
 .address{
@@ -233,20 +239,20 @@ select:focus{
   background:#060c18;
   padding:13px;
   border-radius:8px;
-  margin-top:12px;
+  margin-top:10px;
   font-size:13px;
-  line-height:1.5;
+  line-height:1.5
 }
 
-.copy{
+.smallbtn{
   margin-top:10px;
-  background:#172c4b;
+  background:#172c4b
 }
 
 .status{
   display:flex;
   gap:8px;
-  margin:25px 0;
+  margin:25px 0
 }
 
 .step{
@@ -256,82 +262,64 @@ select:focus{
   border-radius:7px;
   background:#101c30;
   color:#687c99;
-  font-size:11px;
+  font-size:11px
 }
 
 .step.active{
   background:#087bd5;
-  color:#fff;
+  color:#fff
 }
 
-.hidden{
-  display:none!important;
-}
+.hidden{display:none!important}
 
 .faq{
   max-width:800px;
-  margin:auto;
+  margin:auto
 }
 
 .faq div{
   padding:20px 0;
-  border-bottom:1px solid #1b2c46;
-}
-
-.faq h3{
-  margin-bottom:7px;
+  border-bottom:1px solid #1b2c46
 }
 
 .faq p{
   color:#9eafc8;
   line-height:1.6;
-  font-weight:600;
+  margin-top:7px;
+  font-weight:600
 }
 
 footer{
   text-align:center;
   padding:45px 20px;
   background:#030710;
-  color:#71839e;
-  font-weight:600;
+  color:#71839e
 }
 
 footer a{
   color:#36a3ff;
-  text-decoration:none;
+  text-decoration:none
 }
 
 @media(max-width:750px){
-
   header{
     flex-direction:column;
-    gap:15px;
+    gap:15px
   }
 
   nav{
-    gap:10px;
     flex-wrap:wrap;
     justify-content:center;
+    gap:10px
   }
 
-  nav a{
-    font-size:12px;
-  }
-
-  .hero{
-    padding-top:75px;
-  }
-
-  .checkout{
-    padding:23px;
+  .dropdown-content{
+    right:auto;
+    left:0
   }
 
   .status{
-    flex-direction:column;
-  }
-
-  .step{
-    width:100%;
+    flex-direction:column
   }
 }
 </style>
@@ -341,910 +329,1029 @@ footer a{
 
 <header>
 
-  <div class="logo">
-    eldosellaccounts
-  </div>
+<div class="logo">AnythingGameStore</div>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#products">Products</a>
-    <a href="#how">How It Works</a>
-    <a href="#faq">FAQ</a>
-    <a href="https://t.me/eldosupport" target="_blank" rel="noopener">
-      Contact Us
-    </a>
-  </nav>
+<nav>
 
+<a href="#" onclick="showPage('home')">Home</a>
+
+<div class="dropdown">
+<button class="dropbtn">Products ▾</button>
+
+<div class="dropdown-content">
+
+<a href="#" onclick="showPage('robux')">Roblox → Robux</a>
+
+<a href="#" onclick="showPage('limiteds')">Roblox → Limiteds</a>
+
+<a href="#" onclick="showPage('vbucks')">Fortnite → V-Bucks</a>
+
+<a href="#" onclick="showPage('eldo')">Eldo</a>
+
+</div>
+</div>
+
+<a href="#" onclick="showPage('checkout')">Checkout</a>
+
+<a href="https://t.me/eldosupport" target="_blank" rel="noopener">
+Contact Us
+</a>
+
+</nav>
 </header>
 
 
-<main id="home">
+<!-- HOME -->
+
+<div id="home" class="page active">
 
 <section class="hero">
 
-  <h1>
-    Welcome to <span>eldosellaccounts</span>
-  </h1>
+<h1>
+Welcome to <span class="blue">AnythingGameStore</span>
+</h1>
 
-  <p>
-    Browse our digital products and use a simple cryptocurrency checkout.
-  </p>
+<p>
+Digital gaming products with cryptocurrency checkout.
+</p>
 
-  <div class="discount">
-    10% OFF — WELCOME10
-  </div>
+<div class="discount">
+10% OFF — WELCOME10
+</div>
 
-  <br>
+<br>
 
-  <a class="btn" href="#products">
-    Shop Now
-  </a>
-
-</section>
-
-
-<section id="products">
-
-  <h2 class="title">
-    Products
-  </h2>
-
-  <div class="products">
-
-    <div class="card">
-
-      <h3>G2A Verified Account</h3>
-
-      <p>
-        Digital account product. Review all product details before purchasing.
-      </p>
-
-      <div class="price">
-        $15
-      </div>
-
-      <button
-        class="btn"
-        onclick="chooseProduct('G2A Verified Account',15)">
-        Buy Now
-      </button>
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>Eldorado Verified Account</h3>
-
-      <p>
-        Digital account product. Review all product details before purchasing.
-      </p>
-
-      <div class="price">
-        $15
-      </div>
-
-      <button
-        class="btn"
-        onclick="chooseProduct('Eldorado Verified Account',15)">
-        Buy Now
-      </button>
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>100 Genuine Reviews</h3>
-
-      <p>
-        Only use this listing for authentic customer experiences.
-      </p>
-
-      <div class="price">
-        $5
-      </div>
-
-      <button
-        class="btn"
-        onclick="chooseProduct('100 Genuine Reviews',5)">
-        Buy Now
-      </button>
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>300 Genuine Reviews</h3>
-
-      <p>
-        Only use this listing for authentic customer experiences.
-      </p>
-
-      <div class="price">
-        $10
-      </div>
-
-      <button
-        class="btn"
-        onclick="chooseProduct('300 Genuine Reviews',10)">
-        Buy Now
-      </button>
-
-    </div>
-
-  </div>
+<button class="btn" onclick="showPage('robux')">
+Shop Products
+</button>
 
 </section>
 
+<section>
 
-<section id="checkout">
+<h2 class="title">What are you looking for?</h2>
 
-  <h2 class="title">
-    Checkout
-  </h2>
+<div class="products">
 
-  <div class="checkout">
+<div class="card">
+<h3>Roblox</h3>
+<p>Choose Robux or browse the Limiteds section.</p>
+<button class="btn" onclick="showPage('robux')">View Roblox</button>
+</div>
 
-    <h3 id="productName">
-      Choose a product above
-    </h3>
+<div class="card">
+<h3>Fortnite</h3>
+<p>Purchase V-Bucks by entering your desired quantity.</p>
+<button class="btn" onclick="showPage('vbucks')">View Fortnite</button>
+</div>
 
-    <div class="price" id="total">
-      $0.00
-    </div>
+<div class="card">
+<h3>Eldo</h3>
+<p>View available Eldo products.</p>
+<button class="btn" onclick="showPage('eldo')">View Eldo</button>
+</div>
 
-
-    <label for="email">
-      Email Address
-    </label>
-
-    <input
-      id="email"
-      type="email"
-      placeholder="you@example.com"
-      autocomplete="email"
-    >
-
-    <div class="notice">
-      Your email is required for digital-product delivery.
-    </div>
-
-
-    <label for="discount">
-      Discount Code
-    </label>
-
-    <input
-      id="discount"
-      placeholder="WELCOME10"
-    >
-
-    <button
-      class="btn"
-      style="margin-top:10px"
-      onclick="applyDiscount()">
-      Apply Code
-    </button>
-
-
-    <label for="crypto">
-      Cryptocurrency
-    </label>
-
-    <select
-      id="crypto"
-      onchange="showCryptoPayment()">
-
-      <option value="">
-        Select Cryptocurrency
-      </option>
-
-      <option value="BTC">
-        BTC
-      </option>
-
-      <option value="LTC">
-        LTC
-      </option>
-
-      <option value="SOL">
-        SOL
-      </option>
-
-    </select>
-
-
-    <div
-      id="cryptoBox"
-      class="notice hidden">
-    </div>
-
-
-    <button
-      id="sentButton"
-      class="btn hidden"
-      style="width:100%;margin-top:15px"
-      onclick="createOrder()">
-
-      I Have Sent
-
-    </button>
-
-
-    <div
-      id="statusBox"
-      class="hidden">
-
-      <div class="status">
-
-        <div
-          id="pending"
-          class="step active">
-          PENDING
-        </div>
-
-        <div
-          id="checking"
-          class="step">
-          CHECKING BLOCKCHAIN
-        </div>
-
-        <div
-          id="received"
-          class="step">
-          RECEIVED
-        </div>
-
-      </div>
-
-      <p
-        id="statusText"
-        style="
-          text-align:center;
-          color:#aebdd5;
-          line-height:1.6;
-        ">
-        Waiting for payment.
-      </p>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
+</div>
 
 
-<section id="how">
+<!-- ROBUX -->
 
-  <h2 class="title">
-    How It Works
-  </h2>
+<div id="robux" class="page">
 
-  <div class="faq">
+<section>
 
-    <div>
-      <h3>1. Choose a Product</h3>
-      <p>
-        Select the digital product you want.
-      </p>
-    </div>
+<h2 class="title">Robux</h2>
 
-    <div>
-      <h3>2. Enter Your Email</h3>
-      <p>
-        Enter an email address for digital delivery.
-      </p>
-    </div>
+<div class="checkout">
 
-    <div>
-      <h3>3. Select Cryptocurrency</h3>
-      <p>
-        Select BTC, LTC, or SOL and follow the displayed payment instructions.
-      </p>
-    </div>
+<h3>Robux</h3>
 
-    <div>
-      <h3>4. Confirm Payment</h3>
-      <p>
-        Press I Have Sent after submitting the transaction.
-      </p>
-    </div>
+<p style="color:#9eafc8;margin-top:10px">
+$1.75 per 1,000 Robux
+</p>
 
-  </div>
+<label for="robuxQty">How many Robux do you want?</label>
 
-</section>
+<input
+id="robuxQty"
+type="number"
+min="5715"
+step="1"
+placeholder="Example: 10000"
+oninput="calculateRobux()"
+>
 
+<div class="notice">
 
-<section id="faq">
+Minimum purchase: <strong>$10</strong>.
 
-  <h2 class="title">
-    FAQ
-  </h2>
+<br><br>
 
-  <div class="faq">
+Your total:
+<span id="robuxTotal" class="amount">$0.00</span>
 
-    <div>
-      <h3>
-        Which cryptocurrencies are accepted?
-      </h3>
+</div>
 
-      <p>
-        BTC, LTC, and SOL.
-      </p>
-    </div>
+<button class="btn" onclick="checkoutRobux()">
+Continue to Checkout
+</button>
 
-
-    <div>
-      <h3>
-        How long does delivery take?
-      </h3>
-
-      <p>
-        Digital delivery may take approximately 30 minutes to 1 hour after confirmed payment.
-      </p>
-    </div>
-
-
-    <div>
-      <h3>
-        Need support?
-      </h3>
-
-      <p>
-        Contact @eldosupport on Telegram.
-      </p>
-    </div>
-
-  </div>
+</div>
 
 </section>
+</div>
 
-</main>
+
+<!-- VBUCKS -->
+
+<div id="vbucks" class="page">
+
+<section>
+
+<h2 class="title">V-Bucks</h2>
+
+<div class="checkout">
+
+<h3>Fortnite V-Bucks</h3>
+
+<p style="color:#9eafc8;margin-top:10px">
+$2.00 per 1,000 V-Bucks
+</p>
+
+<label for="vbucksQty">How many V-Bucks do you want?</label>
+
+<input
+id="vbucksQty"
+type="number"
+min="5000"
+step="1"
+placeholder="Example: 10000"
+oninput="calculateVbucks()"
+>
+
+<div class="notice">
+
+Minimum purchase: <strong>$10</strong>.
+
+<br><br>
+
+Your total:
+<span id="vbucksTotal" class="amount">$0.00</span>
+
+</div>
+
+<button class="btn" onclick="checkoutVbucks()">
+Continue to Checkout
+</button>
+
+</div>
+
+</section>
+</div>
+
+
+<!-- LIMITEDS -->
+
+<div id="limiteds" class="page">
+
+<section>
+
+<h2 class="title">Roblox Limiteds</h2>
+
+<div class="products">
+
+<div class="card">
+
+<div class="product-image"
+style="display:flex;align-items:center;justify-content:center;color:#58708f">
+YOUR IMAGE
+</div>
+
+<h3>Headless</h3>
+
+<p>
+Headless listing. Add your authorized price and inventory.
+</p>
+
+<div class="price">Contact</div>
+
+<button class="btn"
+onclick="selectLimited('Headless')">
+Select
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="product-image"
+style="display:flex;align-items:center;justify-content:center;color:#58708f">
+YOUR IMAGE
+</div>
+
+<h3>Dominus</h3>
+
+<p>
+Dominus listing. Add your authorized price and inventory.
+</p>
+
+<div class="price">Contact</div>
+
+<button class="btn"
+onclick="selectLimited('Dominus')">
+Select
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="product-image"
+style="display:flex;align-items:center;justify-content:center;color:#58708f">
+YOUR IMAGE
+</div>
+
+<h3>Korblox</h3>
+
+<p>
+Korblox listing. Add your authorized price and inventory.
+</p>
+
+<div class="price">Contact</div>
+
+<button class="btn"
+onclick="selectLimited('Korblox')">
+Select
+</button>
+
+</div>
+
+</div>
+
+</section>
+</div>
+
+
+<!-- ELDO -->
+
+<div id="eldo" class="page">
+
+<section>
+
+<h2 class="title">Eldo</h2>
+
+<div class="products">
+
+<div class="card">
+
+<h3>Eldo Product</h3>
+
+<p>
+Add your authorized Eldo product here.
+</p>
+
+<div class="price">$15</div>
+
+<button class="btn"
+onclick="selectFixed('Eldo Product',15)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+
+</section>
+</div>
+
+
+<!-- CHECKOUT -->
+
+<div id="checkout" class="page">
+
+<section>
+
+<h2 class="title">Checkout</h2>
+
+<div class="checkout">
+
+<h3 id="checkoutProduct">
+Choose a product
+</h3>
+
+<div id="checkoutPrice" class="price">
+$0.00
+</div>
+
+
+<label for="email">
+Email Address
+</label>
+
+<input
+id="email"
+type="email"
+placeholder="you@example.com"
+autocomplete="email"
+required
+>
+
+<div class="notice">
+Your email is required for digital delivery.
+</div>
+
+
+<label for="discount">
+Discount Code
+</label>
+
+<input
+id="discount"
+placeholder="WELCOME10"
+>
+
+<button
+class="btn"
+style="margin-top:10px"
+onclick="applyDiscount()">
+Apply Code
+</button>
+
+
+<label for="crypto">
+Cryptocurrency
+</label>
+
+<select id="crypto" onchange="showCryptoPayment()">
+
+<option value="">
+Select cryptocurrency
+</option>
+
+<option value="BTC">BTC</option>
+<option value="LTC">LTC</option>
+<option value="SOL">SOL</option>
+
+</select>
+
+
+<div
+id="cryptoBox"
+class="notice hidden">
+</div>
+
+
+<button
+id="sentButton"
+class="btn hidden"
+style="width:100%;margin-top:15px"
+onclick="createOrder()">
+
+I Have Sent
+
+</button>
+
+
+<div id="statusBox" class="hidden">
+
+<div class="status">
+
+<div id="pending" class="step active">
+PENDING
+</div>
+
+<div id="checking" class="step">
+CHECKING BLOCKCHAIN
+</div>
+
+<div id="received" class="step">
+RECEIVED
+</div>
+
+</div>
+
+<p
+id="statusText"
+style="text-align:center;color:#aebdd5;line-height:1.6">
+
+Waiting for payment.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+</div>
 
 
 <footer>
 
-  <p>
-    © 2026 eldosellaccounts
-  </p>
+<p>© 2026 AnythingGameStore</p>
 
-  <p style="margin-top:10px">
-
-    <a
-      href="https://t.me/eldosupport"
-      target="_blank"
-      rel="noopener">
-
-      @eldosupport
-
-    </a>
-
-  </p>
+<p style="margin-top:10px">
+<a href="https://t.me/eldosupport"
+target="_blank"
+rel="noopener">
+@eldosupport
+</a>
+</p>
 
 </footer>
 
 
 <script>
 
-/* =========================
-   CONFIGURATION
-========================= */
-
 const WORKER_URL =
-  "https://eldosell-payment.austind1001.workers.dev";
+"https://eldosell-payment.austind1001.workers.dev";
 
 
 const wallets = {
 
-  BTC:
-    "bc1q2730dvv78t5aujjfzfx2ch70usjamxu66wjj9m",
+BTC:"bc1q2730dvv78t5aujjfzfx2ch70usjamxu66wjj9m",
 
-  LTC:
-    "LT7L9BdyBEQnXJ3tYSbijDqVymPjv7VKg2",
+LTC:"LT7L9BdyBEQnXJ3tYSbijDqVymPjv7VKg2",
 
-  SOL:
-    "37g7zgpPmKW7hGaov4nKE8vPRtWLDXThcDaUR9HaZG52"
+SOL:"37g7zgpPmKW7hGaov4nKE8vPRtWLDXThcDaUR9HaZG52"
 
 };
 
-
-const coinNames = {
-
-  BTC:"Bitcoin (BTC)",
-  LTC:"Litecoin (LTC)",
-  SOL:"Solana (SOL)"
-
-};
-
-
-/* =========================
-   ORDER STATE
-========================= */
 
 let product = "";
-let usdPrice = 0;
 let finalPrice = 0;
-let discounted = false;
+let basePrice = 0;
 let orderId = null;
+let discountUsed = false;
 
 
-/* =========================
-   SELECT PRODUCT
-========================= */
+function showPage(id){
 
-function chooseProduct(name, price){
+document.querySelectorAll(".page")
+.forEach(page =>
+page.classList.remove("active")
+);
 
-  product = name;
-  usdPrice = price;
-  finalPrice = price;
-  discounted = false;
-  orderId = null;
+document.getElementById(id)
+.classList.add("active");
 
-  document.getElementById("productName")
-    .textContent = name;
-
-  document.getElementById("total")
-    .textContent = "$" + price.toFixed(2);
-
-  document.getElementById("cryptoBox")
-    .classList.add("hidden");
-
-  document.getElementById("sentButton")
-    .classList.add("hidden");
-
-  document.getElementById("statusBox")
-    .classList.add("hidden");
-
-  document.getElementById("checkout")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
 }
 
 
-/* =========================
-   DISCOUNT
-========================= */
+function calculateRobux(){
+
+const qty =
+Number(document.getElementById("robuxQty").value);
+
+if(!qty){
+
+document.getElementById("robuxTotal")
+.textContent="$0.00";
+
+return;
+}
+
+const price =
+(qty / 1000) * 1.75;
+
+document.getElementById("robuxTotal")
+.textContent="$"+price.toFixed(2);
+
+}
+
+
+function calculateVbucks(){
+
+const qty =
+Number(document.getElementById("vbucksQty").value);
+
+if(!qty){
+
+document.getElementById("vbucksTotal")
+.textContent="$0.00";
+
+return;
+}
+
+const price =
+(qty / 1000) * 2;
+
+document.getElementById("vbucksTotal")
+.textContent="$"+price.toFixed(2);
+
+}
+
+
+function checkoutRobux(){
+
+const qty =
+Number(document.getElementById("robuxQty").value);
+
+if(!qty || qty <= 0){
+
+alert("Enter the amount of Robux you want.");
+
+return;
+}
+
+const price =
+(qty / 1000) * 1.75;
+
+if(price < 10){
+
+alert("The minimum Robux purchase is $10.");
+
+return;
+}
+
+product =
+qty + " Robux";
+
+basePrice =
+price;
+
+finalPrice =
+price;
+
+prepareCheckout();
+
+}
+
+
+function checkoutVbucks(){
+
+const qty =
+Number(document.getElementById("vbucksQty").value);
+
+if(!qty || qty <= 0){
+
+alert("Enter the amount of V-Bucks you want.");
+
+return;
+}
+
+const price =
+(qty / 1000) * 2;
+
+if(price < 10){
+
+alert("The minimum V-Bucks purchase is $10.");
+
+return;
+}
+
+product =
+qty + " V-Bucks";
+
+basePrice =
+price;
+
+finalPrice =
+price;
+
+prepareCheckout();
+
+}
+
+
+function selectFixed(name,price){
+
+product=name;
+basePrice=price;
+finalPrice=price;
+
+prepareCheckout();
+
+}
+
+
+function selectLimited(name){
+
+alert(
+name+
+" selected. Add the authorized price for this listing before accepting payment."
+);
+
+}
+
+
+function prepareCheckout(){
+
+discountUsed=false;
+orderId=null;
+
+document.getElementById("checkoutProduct")
+.textContent=product;
+
+document.getElementById("checkoutPrice")
+.textContent="$"+finalPrice.toFixed(2);
+
+document.getElementById("discount").value="";
+
+document.getElementById("crypto").value="";
+
+document.getElementById("cryptoBox")
+.classList.add("hidden");
+
+document.getElementById("sentButton")
+.classList.add("hidden");
+
+document.getElementById("statusBox")
+.classList.add("hidden");
+
+showPage("checkout");
+
+}
+
 
 function applyDiscount(){
 
-  if(!product){
+if(!product){
 
-    alert("Please choose a product first.");
+alert("Choose a product first.");
 
-    return;
-  }
+return;
+}
 
-  const code =
-    document.getElementById("discount")
-      .value
-      .trim()
-      .toUpperCase();
+if(discountUsed){
 
+alert("This discount has already been applied.");
 
-  if(code === "WELCOME10" && !discounted){
+return;
+}
 
-    finalPrice = usdPrice * 0.90;
+const code =
+document.getElementById("discount")
+.value
+.trim()
+.toUpperCase();
 
-    discounted = true;
+if(code !== "WELCOME10"){
 
-    document.getElementById("total")
-      .textContent =
-      "$" + finalPrice.toFixed(2) +
-      " — 10% OFF";
+alert("Invalid discount code.");
 
-    showCryptoPayment();
+return;
+}
 
-    return;
-  }
+finalPrice =
+basePrice * .90;
 
+discountUsed=true;
 
-  if(discounted){
+document.getElementById("checkoutPrice")
+.textContent =
+"$"+finalPrice.toFixed(2);
 
-    alert("The discount has already been applied.");
-
-    return;
-  }
-
-
-  alert("Invalid discount code.");
+showCryptoPayment();
 
 }
 
-
-/* =========================
-   CRYPTO PAYMENT DISPLAY
-========================= */
 
 async function showCryptoPayment(){
 
-  const crypto =
-    document.getElementById("crypto").value;
+const crypto =
+document.getElementById("crypto").value;
 
-  if(!crypto || !product){
+if(!crypto || !product)
+return;
 
-    return;
-  }
+const box =
+document.getElementById("cryptoBox");
 
+box.classList.remove("hidden");
 
-  const box =
-    document.getElementById("cryptoBox");
-
-  box.classList.remove("hidden");
-
-  box.innerHTML =
-    "Loading current " +
-    crypto +
-    " price...";
+box.innerHTML =
+"Loading current "+crypto+" price...";
 
 
-  try{
+try{
 
-    const ids = {
+const ids={
 
-      BTC:"bitcoin",
-      LTC:"litecoin",
-      SOL:"solana"
+BTC:"bitcoin",
+LTC:"litecoin",
+SOL:"solana"
 
-    };
+};
 
+const response =
+await fetch(
+"https://api.coingecko.com/api/v3/simple/price?ids="+
+ids[crypto]+
+"&vs_currencies=usd"
+);
 
-    const response = await fetch(
+if(!response.ok)
+throw new Error();
 
-      "https://api.coingecko.com/api/v3/simple/price" +
-      "?ids=" + ids[crypto] +
-      "&vs_currencies=usd"
+const data =
+await response.json();
 
-    );
+const usd =
+data[ids[crypto]].usd;
 
+const cryptoAmount =
+finalPrice / usd;
 
-    if(!response.ok){
+const decimals =
+crypto==="SOL" ? 6 : 8;
 
-      throw new Error("Price request failed.");
+const amount =
+cryptoAmount.toFixed(decimals);
 
-    }
-
-
-    const data =
-      await response.json();
-
-
-    const usd =
-      data[ids[crypto]].usd;
-
-
-    const cryptoAmount =
-      finalPrice / usd;
-
-
-    const decimals =
-      crypto === "SOL" ? 6 : 8;
+const address =
+wallets[crypto];
 
 
-    const formattedAmount =
-      cryptoAmount.toFixed(decimals);
+box.innerHTML=`
 
+<strong>
+PAY WITH ${crypto}
+</strong>
 
-    const address =
-      wallets[crypto];
+<br><br>
 
+<strong>
+EXACT AMOUNT TO SEND
+</strong>
 
-    box.innerHTML = `
+<span class="amount">
+${amount} ${crypto}
+</span>
 
-      <strong>
-        PAY WITH ${coinNames[crypto].toUpperCase()}
-      </strong>
+<button
+class="btn smallbtn"
+onclick="copyText('${amount} ${crypto}')">
 
-      <br><br>
+COPY AMOUNT
 
-      AMOUNT TO SEND:
+</button>
 
-      <span class="crypto-amount">
-        ${formattedAmount} ${crypto}
-      </span>
+<br><br>
 
-      <br>
+<strong>
+SEND TO
+</strong>
 
-      <strong>
-        SEND TO:
-      </strong>
+<div class="address">
+${address}
+</div>
 
-      <div class="address">
-        ${address}
-      </div>
+<button
+class="btn smallbtn"
+onclick="copyText('${address}')">
 
-      <button
-        class="btn copy"
-        onclick="copyAddress('${address}')">
+COPY ADDRESS
 
-        COPY ADDRESS
+</button>
 
-      </button>
+<div style="margin-top:12px;font-size:12px;color:#8498b4">
 
-      <div
-        style="
-          margin-top:12px;
-          font-size:12px;
-          color:#8498b4;
-        ">
+Reference rate:
+$${Number(usd).toLocaleString()}
+per ${crypto}.
 
-        Current reference rate:
-        $${Number(usd).toLocaleString()}
-        USD per ${crypto}.
+</div>
 
-      </div>
+`;
 
-    `;
+document.getElementById("sentButton")
+.classList.remove("hidden");
 
+}catch(error){
 
-    document.getElementById("sentButton")
-      .classList.remove("hidden");
+box.innerHTML =
+"Unable to load the cryptocurrency price. Please try again.";
 
-
-  }catch(error){
-
-    box.innerHTML =
-      "Unable to load the current cryptocurrency price. Please try again.";
-
-  }
+}
 
 }
 
 
-/* =========================
-   COPY WALLET
-========================= */
+async function copyText(text){
 
-async function copyAddress(address){
+try{
 
-  try{
+await navigator.clipboard.writeText(text);
 
-    await navigator.clipboard.writeText(address);
+alert("Copied.");
 
-    alert("Wallet address copied.");
+}catch(e){
 
-  }catch(error){
-
-    alert("Copy failed. Please copy the address manually.");
-
-  }
+alert("Copy failed. Please copy it manually.");
 
 }
 
+}
 
-/* =========================
-   CREATE ORDER
-========================= */
 
 async function createOrder(){
 
-  const email =
-    document.getElementById("email")
-      .value
-      .trim();
+const email =
+document.getElementById("email")
+.value.trim();
+
+const crypto =
+document.getElementById("crypto")
+.value;
 
 
-  const crypto =
-    document.getElementById("crypto")
-      .value;
+if(!product){
+
+alert("Choose a product first.");
+
+return;
+}
+
+if(!email || !email.includes("@")){
+
+alert("Enter a valid email address.");
+
+return;
+}
+
+if(!crypto){
+
+alert("Select BTC, LTC, or SOL.");
+
+return;
+}
 
 
-  if(!product){
+const button =
+document.getElementById("sentButton");
 
-    alert("Please choose a product first.");
+button.disabled=true;
 
-    return;
-  }
-
-
-  if(!email || !email.includes("@")){
-
-    alert("Please enter a valid email address.");
-
-    return;
-  }
+button.textContent=
+"Creating Order...";
 
 
-  if(!crypto){
+try{
 
-    alert("Please select BTC, LTC, or SOL.");
+const response =
+await fetch(
 
-    return;
-  }
+WORKER_URL+"/create-order",
 
+{
 
-  const button =
-    document.getElementById("sentButton");
+method:"POST",
 
+headers:{
+"Content-Type":"application/json"
+},
 
-  button.disabled = true;
+body:JSON.stringify({
 
-  button.textContent =
-    "Creating Order...";
+product:product,
 
+amount:finalPrice,
 
-  try{
+crypto:crypto,
 
-    const response = await fetch(
+email:email,
 
-      WORKER_URL + "/create-order",
+wallet:wallets[crypto]
 
-      {
+})
 
-        method:"POST",
+}
 
-        headers:{
-          "Content-Type":"application/json"
-        },
-
-        body:JSON.stringify({
-
-          product:product,
-
-          amount:finalPrice,
-
-          crypto:crypto,
-
-          email:email,
-
-          wallet:wallets[crypto]
-
-        })
-
-      }
-
-    );
+);
 
 
-    const data =
-      await response.json();
+const data =
+await response.json();
 
 
-    if(!response.ok){
+if(!response.ok){
 
-      throw new Error(
-        data.error ||
-        "Unable to create order."
-      );
-
-    }
-
-
-    orderId =
-      data.orderId;
-
-
-    document.getElementById("statusBox")
-      .classList.remove("hidden");
-
-
-    document.getElementById("pending")
-      .classList.remove("active");
-
-
-    document.getElementById("checking")
-      .classList.add("active");
-
-
-    document.getElementById("statusText")
-      .textContent =
-      "Order " + orderId +
-      " created. Checking blockchain for payment...";
-
-
-    button.textContent =
-      "Payment Submitted";
-
-
-    /*
-      Start polling the backend.
-
-      The backend must be the source of truth.
-      The browser must never decide that payment
-      has been received by itself.
-    */
-
-    pollOrderStatus();
-
-
-  }catch(error){
-
-    alert(error.message);
-
-    button.disabled = false;
-
-    button.textContent =
-      "I Have Sent";
-
-  }
+throw new Error(
+data.error ||
+"Unable to create order."
+);
 
 }
 
 
-/* =========================
-   CHECK ORDER STATUS
-========================= */
+orderId =
+data.orderId;
+
+
+document.getElementById("statusBox")
+.classList.remove("hidden");
+
+document.getElementById("pending")
+.classList.remove("active");
+
+document.getElementById("checking")
+.classList.add("active");
+
+document.getElementById("statusText")
+.textContent =
+"Order "+orderId+
+" created. Checking blockchain for payment...";
+
+button.textContent=
+"Payment Submitted";
+
+
+pollOrderStatus();
+
+
+}catch(error){
+
+alert(error.message);
+
+button.disabled=false;
+
+button.textContent=
+"I Have Sent";
+
+}
+
+}
+
 
 async function pollOrderStatus(){
 
-  if(!orderId){
-
-    return;
-  }
+if(!orderId)
+return;
 
 
-  try{
+try{
 
-    const response = await fetch(
+const response =
+await fetch(
 
-      WORKER_URL +
-      "/order-status?id=" +
-      encodeURIComponent(orderId)
+WORKER_URL+
+"/order-status?id="+
+encodeURIComponent(orderId)
 
-    );
-
-
-    const data =
-      await response.json();
+);
 
 
-    if(data.status === "received"){
-
-      document.getElementById("checking")
-        .classList.remove("active");
-
-      document.getElementById("received")
-        .classList.add("active");
+const data =
+await response.json();
 
 
-      document.getElementById("statusText")
-        .textContent =
-        "Payment received. Check your email for your digital product information.";
+if(data.status==="received"){
 
-      return;
-    }
+document.getElementById("checking")
+.classList.remove("active");
 
+document.getElementById("received")
+.classList.add("active");
 
-    if(data.status === "checking"){
+document.getElementById("statusText")
+.textContent =
+"Payment received. Check your email for your digital product information.";
 
-      document.getElementById("pending")
-        .classList.remove("active");
+return;
 
-      document.getElementById("checking")
-        .classList.add("active");
-
-      document.getElementById("statusText")
-        .textContent =
-        "Checking blockchain for your payment...";
-
-    }
+}
 
 
-    /*
-      Continue checking every 10 seconds.
-    */
+if(data.status==="checking"){
 
-    setTimeout(
-      pollOrderStatus,
-      10000
-    );
+document.getElementById("pending")
+.classList.remove("active");
+
+document.getElementById("checking")
+.classList.add("active");
+
+document.getElementById("statusText")
+.textContent =
+"Checking blockchain for your payment...";
+
+}
 
 
-  }catch(error){
+setTimeout(
+pollOrderStatus,
+10000
+);
 
-    /*
-      Keep checking if the temporary request fails.
-    */
 
-    setTimeout(
-      pollOrderStatus,
-      10000
-    );
+}catch(error){
 
-  }
+setTimeout(
+pollOrderStatus,
+10000
+);
+
+}
 
 }
 
@@ -1252,4 +1359,3 @@ async function pollOrderStatus(){
 
 </body>
 </html>
-```
