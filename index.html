@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AnythingGameStore</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -12,347 +11,64 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-
-body{
-font-family:Inter,Arial,sans-serif;
-background:#050914;
-color:#fff;
-font-weight:700;
-}
-
-header{
-position:sticky;
-top:0;
-z-index:999;
-background:#070d1cf7;
-border-bottom:1px solid #18345c;
-padding:18px 6%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
-font-size:21px;
-color:#36a3ff;
-white-space:nowrap;
-}
-
-nav{
-display:flex;
-align-items:center;
-gap:20px;
-}
-
-nav a,.dropbtn{
-color:#d9e5f5;
-text-decoration:none;
-font:700 14px Inter,Arial,sans-serif;
-background:none;
-border:0;
-cursor:pointer;
-}
-
+body{font-family:Inter,Arial,sans-serif;background:#050914;color:#fff;font-weight:700}
+header{position:sticky;top:0;z-index:999;background:#070d1cf7;border-bottom:1px solid #18345c;padding:18px 6%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:21px;color:#36a3ff;white-space:nowrap}
+nav{display:flex;align-items:center;gap:20px}
+nav a,.dropbtn{color:#d9e5f5;text-decoration:none;font:700 14px Inter,Arial,sans-serif;background:none;border:0;cursor:pointer}
 nav a:hover,.dropbtn:hover{color:#36a3ff}
-
 .dropdown{position:relative}
-
-.dropbtn{
-display:flex;
-align-items:center;
-gap:6px;
-}
-
-.dropdown-content{
-display:none;
-position:absolute;
-top:35px;
-right:0;
-min-width:220px;
-background:#0b1426;
-border:1px solid #244568;
-border-radius:10px;
-padding:8px;
-box-shadow:0 15px 40px #0008;
-}
-
+.dropbtn{display:flex;align-items:center;gap:6px}
+.dropdown-content{display:none;position:absolute;top:35px;right:0;min-width:220px;background:#0b1426;border:1px solid #244568;border-radius:10px;padding:8px;box-shadow:0 15px 40px #0008}
 .dropdown-content.show{display:block}
-
-.dropdown-content a{
-display:block;
-padding:12px;
-border-radius:7px;
-color:#d9e5f5;
-text-decoration:none;
-white-space:nowrap;
-}
-
-.dropdown-content a:hover{
-background:#10233d;
-color:#36a3ff;
-}
-
+.dropdown-content a{display:block;padding:12px;border-radius:7px;color:#d9e5f5;text-decoration:none;white-space:nowrap}
+.dropdown-content a:hover{background:#10233d;color:#36a3ff}
 .page{display:none}
 .page.active{display:block}
-
-.hero{
-text-align:center;
-padding:110px 20px 95px;
-background:radial-gradient(circle at 50% 0,#0969d955,transparent 60%);
-}
-
-.hero h1{
-font-size:clamp(42px,7vw,72px);
-line-height:1.05;
-margin-bottom:20px;
-}
-
+.hero{text-align:center;padding:110px 20px 95px;background:radial-gradient(circle at 50% 0,#0969d955,transparent 60%)}
+.hero h1{font-size:clamp(42px,7vw,72px);line-height:1.05;margin-bottom:20px}
 .blue{color:#36a3ff}
-
-.hero p{
-color:#aebdd5;
-max-width:650px;
-margin:auto;
-line-height:1.7;
-font-weight:600;
-}
-
-.discount{
-display:inline-block;
-margin:28px 0;
-padding:14px 24px;
-background:#0b1930;
-border:1px solid #218cff;
-border-radius:10px;
-color:#58b5ff;
-}
-
-.btn{
-display:inline-block;
-border:0;
-border-radius:9px;
-padding:14px 23px;
-background:#168cff;
-color:#fff;
-font:800 14px Inter,Arial,sans-serif;
-cursor:pointer;
-text-decoration:none;
-}
-
+.hero p{color:#aebdd5;max-width:650px;margin:auto;line-height:1.7;font-weight:600}
+.discount{display:inline-block;margin:28px 0;padding:14px 24px;background:#0b1930;border:1px solid #218cff;border-radius:10px;color:#58b5ff}
+.btn{display:inline-block;border:0;border-radius:9px;padding:14px 23px;background:#168cff;color:#fff;font:800 14px Inter,Arial,sans-serif;cursor:pointer;text-decoration:none}
 .btn:hover{background:#0874dc}
-
-.btn:disabled{
-opacity:.6;
-cursor:not-allowed;
-}
-
-section{
-max-width:1200px;
-margin:auto;
-padding:70px 6%;
-}
-
-.title{
-text-align:center;
-font-size:34px;
-margin-bottom:40px;
-}
-
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:20px;
-}
-
-.card{
-background:#0b1426;
-border:1px solid #172d50;
-border-radius:16px;
-padding:27px;
-transition:.2s;
-}
-
-.card:hover{
-transform:translateY(-4px);
-border-color:#258fff;
-}
-
+.btn:disabled{opacity:.6;cursor:not-allowed}
+section{max-width:1200px;margin:auto;padding:70px 6%}
+.title{text-align:center;font-size:34px;margin-bottom:40px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.card{background:#0b1426;border:1px solid #172d50;border-radius:16px;padding:27px;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#258fff}
 .card h3{font-size:19px}
-
-.card p{
-color:#9eafc8;
-line-height:1.6;
-margin:13px 0;
-font-weight:600;
-}
-
-.price{
-color:#45aaff;
-font-size:28px;
-margin:18px 0;
-}
-
-.product-image{
-width:100%;
-height:170px;
-object-fit:contain;
-border-radius:10px;
-background:#060c18;
-margin-bottom:18px;
-}
-
-.checkout{
-max-width:650px;
-margin:auto;
-padding:32px;
-background:#0b1426;
-border:1px solid #172d50;
-border-radius:17px;
-}
-
-label{
-display:block;
-margin:20px 0 8px;
-}
-
-input,select{
-width:100%;
-padding:14px;
-background:#060c18;
-border:1px solid #29415f;
-border-radius:9px;
-color:#fff;
-font:700 14px Inter,Arial,sans-serif;
-outline:none;
-}
-
+.card p{color:#9eafc8;line-height:1.6;margin:13px 0;font-weight:600}
+.price{color:#45aaff;font-size:28px;margin:18px 0}
+.product-image{width:100%;height:170px;object-fit:contain;border-radius:10px;background:#060c18;margin-bottom:18px}
+.checkout{max-width:650px;margin:auto;padding:32px;background:#0b1426;border:1px solid #172d50;border-radius:17px}
+label{display:block;margin:20px 0 8px}
+input,select{width:100%;padding:14px;background:#060c18;border:1px solid #29415f;border-radius:9px;color:#fff;font:700 14px Inter,Arial,sans-serif;outline:none}
 input:focus,select:focus{border-color:#258fff}
-
-.notice{
-margin:17px 0;
-padding:15px;
-background:#0d1d34;
-border-left:3px solid #36a3ff;
-color:#b9c9df;
-line-height:1.6;
-font-weight:600;
-}
-
-.error-message{
-display:none;
-margin-top:12px;
-padding:13px 15px;
-background:#32131a;
-border:1px solid #a83248;
-border-left:4px solid #ff4264;
-border-radius:8px;
-color:#ff9bad;
-line-height:1.5;
-font-size:13px;
-}
-
+.notice{margin:17px 0;padding:15px;background:#0d1d34;border-left:3px solid #36a3ff;color:#b9c9df;line-height:1.6;font-weight:600}
+.error-message{display:none;margin-top:12px;padding:13px 15px;background:#32131a;border:1px solid #a83248;border-left:4px solid #ff4264;border-radius:8px;color:#ff9bad;line-height:1.5;font-size:13px}
 .error-message.show{display:block}
-
-.success-message{
-display:none;
-margin-top:12px;
-padding:13px 15px;
-background:#0b3021;
-border:1px solid #168b5b;
-border-left:4px solid #22d889;
-border-radius:8px;
-color:#7ff0b9;
-line-height:1.5;
-font-size:13px;
-}
-
+.success-message{display:none;margin-top:12px;padding:13px 15px;background:#0b3021;border:1px solid #168b5b;border-left:4px solid #22d889;border-radius:8px;color:#7ff0b9;line-height:1.5;font-size:13px}
 .success-message.show{display:block}
-
-.amount{
-font-size:25px;
-color:#58b5ff;
-word-break:break-word;
-display:block;
-margin:7px 0;
-}
-
-.address{
-word-break:break-all;
-color:#58b5ff;
-background:#060c18;
-padding:13px;
-border-radius:8px;
-margin-top:10px;
-font-size:13px;
-line-height:1.5;
-}
-
-.smallbtn{
-margin-top:10px;
-background:#172c4b;
-}
-
-.status{
-display:flex;
-gap:8px;
-margin:25px 0;
-}
-
-.step{
-flex:1;
-text-align:center;
-padding:12px 5px;
-border-radius:7px;
-background:#101c30;
-color:#687c99;
-font-size:11px;
-}
-
-.step.active{
-background:#087bd5;
-color:#fff;
-}
-
+.amount{font-size:25px;color:#58b5ff;word-break:break-word;display:block;margin:7px 0}
+.address{word-break:break-all;color:#58b5ff;background:#060c18;padding:13px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.5}
+.smallbtn{margin-top:10px;background:#172c4b}
+.status{display:flex;gap:8px;margin:25px 0}
+.step{flex:1;text-align:center;padding:12px 5px;border-radius:7px;background:#101c30;color:#687c99;font-size:11px}
+.step.active{background:#087bd5;color:#fff}
 .hidden{display:none!important}
-
-footer{
-text-align:center;
-padding:45px 20px;
-background:#030710;
-color:#71839e;
-}
-
-footer a{
-color:#36a3ff;
-text-decoration:none;
-}
-
+.review{margin-top:18px;padding:14px;background:#081120;border:1px solid #193456;border-radius:10px;color:#aebdd5}
+.stars{color:#ffd84d;letter-spacing:2px}
+footer{text-align:center;padding:45px 20px;background:#030710;color:#71839e}
+footer a{color:#36a3ff;text-decoration:none}
 @media(max-width:750px){
-
-header{
-flex-direction:column;
-gap:15px;
-}
-
-nav{
-flex-wrap:wrap;
-justify-content:center;
-gap:12px;
-}
-
-.dropdown-content{
-position:absolute;
-right:auto;
-left:50%;
-transform:translateX(-50%);
-}
-
+header{flex-direction:column;gap:15px}
+nav{flex-wrap:wrap;justify-content:center;gap:12px}
+.dropdown-content{position:absolute;right:auto;left:50%;transform:translateX(-50%)}
 .hero{padding-top:75px}
-
 .checkout{padding:23px}
-
 .status{flex-direction:column}
-
 }
 </style>
 </head>
@@ -360,175 +76,79 @@ transform:translateX(-50%);
 <body>
 
 <header>
-
-<div class="logo">
-AnythingGameStore
-</div>
+<div class="logo">AnythingGameStore</div>
 
 <nav>
-
-<a href="#" onclick="showPage('home');return false;">
-Home
-</a>
+<a href="#" onclick="showPage('home');return false;">Home</a>
 
 <div class="dropdown">
-
-<button
-class="dropbtn"
-onclick="toggleProducts(event)">
+<button class="dropbtn" onclick="toggleProducts(event)">
 Products <span id="arrow">▼</span>
 </button>
 
 <div id="productMenu" class="dropdown-content">
-
-<a href="#"
-onclick="showPage('robux');closeProducts();return false;">
-Roblox → Robux
-</a>
-
-<a href="#"
-onclick="showPage('limiteds');closeProducts();return false;">
-Roblox → Limiteds
-</a>
-
-<a href="#"
-onclick="showPage('eldarodo');closeProducts();return false;">
-Eldarodo
-</a>
-
+<a href="#" onclick="showPage('robux');closeProducts();return false;">Roblox → Robux</a>
+<a href="#" onclick="showPage('limiteds');closeProducts();return false;">Roblox → Limiteds</a>
+<a href="#" onclick="showPage('eldorado');closeProducts();return false;">Eldorado</a>
 </div>
 </div>
 
-<a href="#"
-onclick="showPage('checkout');return false;">
-Checkout
-</a>
+<a href="#" onclick="showPage('checkout');return false;">Checkout</a>
 
-<a
-href="https://t.me/eldosupport"
-target="_blank"
-rel="noopener">
-Contact Us
-</a>
-
+<a href="https://t.me/eldosupport" target="_blank" rel="noopener">Contact Us</a>
 </nav>
 </header>
-
-
-<!-- HOME -->
 
 <div id="home" class="page active">
 
 <section class="hero">
+<h1>Welcome to <span class="blue">AnythingGameStore</span></h1>
+<p>Digital gaming products with cryptocurrency checkout.</p>
 
-<h1>
-Welcome to <span class="blue">AnythingGameStore</span>
-</h1>
-
-<p>
-Digital gaming products with cryptocurrency checkout.
-</p>
-
-<div class="discount">
-10% OFF — WELCOME10
-</div>
-
+<div class="discount">10% OFF — WELCOME10</div>
 <br>
 
-<button
-class="btn"
-onclick="showPage('robux')">
-Shop Products
-</button>
-
+<button class="btn" onclick="showPage('robux')">Shop Products</button>
 </section>
 
 <section>
-
-<h2 class="title">
-What are you looking for?
-</h2>
+<h2 class="title">What are you looking for?</h2>
 
 <div class="products">
 
 <div class="card">
-
 <h3>Robux</h3>
-
-<p>
-Choose the amount of Robux you want and continue to checkout.
-</p>
-
-<button
-class="btn"
-onclick="showPage('robux')">
-View Robux
-</button>
-
+<p>Choose the amount of Robux you want and continue to checkout.</p>
+<button class="btn" onclick="showPage('robux')">View Robux</button>
 </div>
 
-
 <div class="card">
-
 <h3>Limiteds</h3>
-
-<p>
-Browse the available Headless, Dominus and Korblox listings.
-</p>
-
-<button
-class="btn"
-onclick="showPage('limiteds')">
-View Limiteds
-</button>
-
+<p>Browse the available Headless, Dominus Frigidus and Korblox listings.</p>
+<button class="btn" onclick="showPage('limiteds')">View Limiteds</button>
 </div>
-
 
 <div class="card">
-
-<h3>Eldarodo</h3>
-
-<p>
-View available Eldarodo products.
-</p>
-
-<button
-class="btn"
-onclick="showPage('eldarodo')">
-View Eldarodo
-</button>
-
+<h3>Eldorado Verified Account</h3>
+<p>View available Eldorado Verified Account products.</p>
+<button class="btn" onclick="showPage('eldorado')">View Eldorado</button>
 </div>
 
 </div>
-
 </section>
 
 </div>
 
-
-<!-- ROBUX -->
-
 <div id="robux" class="page">
-
 <section>
-
-<h2 class="title">
-Robux
-</h2>
+<h2 class="title">Robux</h2>
 
 <div class="checkout">
-
 <h3>Robux</h3>
 
-<p style="color:#9eafc8;margin-top:10px">
-$1.75 per 1,000 Robux
-</p>
+<p style="color:#9eafc8;margin-top:10px">$1.75 per 1,000 Robux</p>
 
-<label for="robuxQty">
-How many Robux do you want?
-</label>
+<label for="robuxQty">How many Robux do you want?</label>
 
 <input
 id="robuxQty"
@@ -542,188 +162,126 @@ oninput="calculateRobux()"
 <div id="robuxError" class="error-message"></div>
 
 <div class="notice">
-
 Minimum purchase: <strong>$10</strong>.
-
 <br><br>
-
 Your total:
-
-<span id="robuxTotal" class="amount">
-$0.00
-</span>
-
+<span id="robuxTotal" class="amount">$0.00</span>
 </div>
 
-<button
-class="btn"
-onclick="checkoutRobux()">
-Continue to Checkout
-</button>
-
+<button class="btn" onclick="checkoutRobux()">Continue to Checkout</button>
 </div>
-
 </section>
-
 </div>
-
-
-<!-- LIMITEDS -->
 
 <div id="limiteds" class="page">
-
 <section>
 
-<h2 class="title">
-Roblox Limiteds
-</h2>
+<h2 class="title">Roblox Limiteds</h2>
 
 <div class="products">
 
 <div class="card">
-
-<div
-class="product-image"
-style="display:flex;align-items:center;justify-content:center;color:#58708f">
-YOUR IMAGE
+<div class="product-image">
+<img
+src="https://tr.rbxcdn.com/30DAY-AvatarHeadShot-5E7A6E7E2D5B2B8A6C5C4E4A4E7B4E2A-Png/420/420/AvatarHeadshot/Png/noFilter"
+alt="Korblox"
+style="width:100%;height:100%;object-fit:contain"
+onerror="this.parentElement.innerHTML='<span style=&quot;color:#58708f&quot;>Korblox</span>'"
+>
 </div>
-
-<h3>Headless</h3>
-
-<p>Headless listing.</p>
-
-<div class="price">Contact</div>
-
-<button
-class="btn"
-onclick="selectLimited('Headless')">
-Select
-</button>
-
-</div>
-
-
-<div class="card">
-
-<div
-class="product-image"
-style="display:flex;align-items:center;justify-content:center;color:#58708f">
-YOUR IMAGE
-</div>
-
-<h3>Dominus</h3>
-
-<p>Dominus listing.</p>
-
-<div class="price">Contact</div>
-
-<button
-class="btn"
-onclick="selectLimited('Dominus')">
-Select
-</button>
-
-</div>
-
-
-<div class="card">
-
-<div
-class="product-image"
-style="display:flex;align-items:center;justify-content:center;color:#58708f">
-YOUR IMAGE
-</div>
-
 <h3>Korblox</h3>
-
 <p>Korblox listing.</p>
+<div class="price">$35</div>
+<button class="btn" onclick="selectFixed('Korblox',35)">Buy Now</button>
+</div>
 
-<div class="price">Contact</div>
+<div class="card">
+<div class="product-image">
+<img
+src="https://tr.rbxcdn.com/30DAY-AvatarHeadShot-7B5B8B5A7D5A7F8D7B4E5A3B2D4C5E6F-Png/420/420/AvatarHeadshot/Png/noFilter"
+alt="Headless"
+style="width:100%;height:100%;object-fit:contain"
+onerror="this.parentElement.innerHTML='<span style=&quot;color:#58708f&quot;>Headless</span>'"
+>
+</div>
+<h3>Headless</h3>
+<p>Headless listing.</p>
+<div class="price">$40</div>
+<button class="btn" onclick="selectFixed('Headless',40)">Buy Now</button>
+</div>
 
-<button
-class="btn"
-onclick="selectLimited('Korblox')">
-Select
-</button>
-
+<div class="card">
+<div class="product-image">
+<img
+src="https://tr.rbxcdn.com/30DAY-AvatarHeadShot-6E6A4A4B5D4C3B2A1F0E9D8C7B6A5A4F-Png/420/420/AvatarHeadshot/Png/noFilter"
+alt="Dominus Frigidus"
+style="width:100%;height:100%;object-fit:contain"
+onerror="this.parentElement.innerHTML='<span style=&quot;color:#58708f&quot;>Dominus Frigidus</span>'"
+>
+</div>
+<h3>Dominus Frigidus</h3>
+<p>Dominus Frigidus listing.</p>
+<div class="price">$50</div>
+<button class="btn" onclick="selectFixed('Dominus Frigidus',50)">Buy Now</button>
 </div>
 
 </div>
-
 </section>
-
 </div>
 
-
-<!-- ELDARODO -->
-
-<div id="eldarodo" class="page">
-
+<div id="eldorado" class="page">
 <section>
 
-<h2 class="title">
-Eldarodo
-</h2>
+<h2 class="title">Eldorado Verified Account</h2>
 
 <div class="products">
 
 <div class="card">
-
-<h3>
-Eldarodo Product
-</h3>
+<h3>Eldorado Verified Account</h3>
 
 <p>
-Authorized Eldarodo product.
+Verified Eldorado account product.
 </p>
 
-<div class="price">
-$15
-</div>
+<div class="price">$15</div>
 
-<button
-class="btn"
-onclick="selectFixed('Eldarodo Product',15)">
+<button class="btn" onclick="selectFixed('Eldorado Verified Account',15)">
 Buy Now
 </button>
 
+<div class="review">
+<div class="stars">★★★★★</div>
+<strong>100+ Reviews</strong>
+<p>Customer reviews and completed orders.</p>
+</div>
+
+<div class="review">
+<div class="stars">★★★★★</div>
+<strong>300+ Reviews</strong>
+<p>Customer reviews and completed orders.</p>
 </div>
 
 </div>
 
+</div>
 </section>
-
 </div>
-
-
-<!-- CHECKOUT -->
 
 <div id="checkout" class="page">
-
 <section>
 
-<h2 class="title">
-Checkout
-</h2>
+<h2 class="title">Checkout</h2>
 
 <div class="checkout">
 
-<h3 id="checkoutProduct">
-Choose a product
-</h3>
+<h3 id="checkoutProduct">Choose a product</h3>
 
-<div id="checkoutPrice" class="price">
-$0.00
-</div>
+<div id="checkoutPrice" class="price">$0.00</div>
 
 <div id="siteError" class="error-message"></div>
-
 <div id="siteSuccess" class="success-message"></div>
 
-
-<label for="email">
-Email Address
-</label>
+<label for="email">Email Address</label>
 
 <input
 id="email"
@@ -738,131 +296,72 @@ autocomplete="email"
 Your email is required for digital delivery.
 </div>
 
+<label for="discount">Discount Code</label>
 
-<label for="discount">
-Discount Code
-</label>
+<input id="discount" placeholder="WELCOME10">
 
-<input
-id="discount"
-placeholder="WELCOME10"
->
-
-<button
-class="btn"
-style="margin-top:10px"
-onclick="applyDiscount()">
+<button class="btn" style="margin-top:10px" onclick="applyDiscount()">
 Apply Code
 </button>
 
 <div id="discountError" class="error-message"></div>
 
+<label for="crypto">Cryptocurrency</label>
 
-<label for="crypto">
-Cryptocurrency
-</label>
-
-<select
-id="crypto"
-onchange="showCryptoPayment()">
-
-<option value="">
-Select cryptocurrency
-</option>
-
+<select id="crypto" onchange="showCryptoPayment()">
+<option value="">Select cryptocurrency</option>
 <option value="BTC">BTC</option>
 <option value="LTC">LTC</option>
 <option value="SOL">SOL</option>
-
 </select>
 
 <div id="cryptoError" class="error-message"></div>
 
 <div id="cryptoBox" class="notice hidden"></div>
 
-
 <button
 id="sentButton"
 class="btn hidden"
 style="width:100%;margin-top:15px"
 onclick="createOrder()">
-
 I Have Sent
-
 </button>
-
 
 <div id="statusBox" class="hidden">
 
 <div class="status">
-
-<div id="pending" class="step active">
-PENDING
+<div id="pending" class="step active">PENDING</div>
+<div id="checking" class="step">CHECKING BLOCKCHAIN</div>
+<div id="received" class="step">RECEIVED</div>
 </div>
 
-<div id="checking" class="step">
-CHECKING BLOCKCHAIN
-</div>
-
-<div id="received" class="step">
-RECEIVED
-</div>
-
-</div>
-
-<p
-id="statusText"
-style="text-align:center;color:#aebdd5;line-height:1.6">
-
+<p id="statusText" style="text-align:center;color:#aebdd5;line-height:1.6">
 Waiting for payment.
-
 </p>
 
 </div>
 
 </div>
-
 </section>
-
 </div>
-
 
 <footer>
-
-<p>
-© 2026 AnythingGameStore
-</p>
-
+<p>© 2026 AnythingGameStore</p>
 <p style="margin-top:10px">
-
-<a
-href="https://t.me/eldosupport"
-target="_blank"
-rel="noopener">
-@eldosupport
-</a>
-
+<a href="https://t.me/eldosupport" target="_blank" rel="noopener">@eldosupport</a>
 </p>
-
 </footer>
-
 
 <script>
 
 const WORKER_URL =
 "https://eldosell-payment.austind1001.workers.dev";
 
-
-const wallets={
-
+const wallets = {
 BTC:"bc1q2730dvv78t5aujjfzfx2ch70usjamxu66wjj9m",
-
 LTC:"LT7L9BdyBEQnXJ3tYSbijDqVymPjv7VKg2",
-
 SOL:"37g7zgpPmKW7hGaov4nKE8vPRtWLDXThcDaUR9HaZG52"
-
 };
-
 
 let product="";
 let finalPrice=0;
@@ -871,7 +370,9 @@ let orderId=null;
 let discountUsed=false;
 
 
-/* ON-SITE MESSAGES */
+/* =========================
+   MESSAGES
+========================= */
 
 function showError(id,message){
 
@@ -884,7 +385,6 @@ box.classList.add("show");
 
 }
 
-
 function clearError(id){
 
 const box=document.getElementById(id);
@@ -895,7 +395,6 @@ box.textContent="";
 box.classList.remove("show");
 
 }
-
 
 function clearAllErrors(){
 
@@ -909,7 +408,6 @@ function clearAllErrors(){
 
 }
 
-
 function showSuccess(id,message){
 
 const box=document.getElementById(id);
@@ -922,48 +420,38 @@ box.classList.add("show");
 }
 
 
-/* DROPDOWN */
+/* =========================
+   DROPDOWN
+========================= */
 
 function toggleProducts(event){
 
 event.preventDefault();
 event.stopPropagation();
 
-const menu=
-document.getElementById("productMenu");
-
-const arrow=
-document.getElementById("arrow");
+const menu=document.getElementById("productMenu");
+const arrow=document.getElementById("arrow");
 
 menu.classList.toggle("show");
 
 arrow.textContent=
-menu.classList.contains("show")
-?"▲"
-:"▼";
+menu.classList.contains("show") ? "▲" : "▼";
 
 }
 
-
 function closeProducts(){
 
-const menu=
-document.getElementById("productMenu");
-
-const arrow=
-document.getElementById("arrow");
+const menu=document.getElementById("productMenu");
+const arrow=document.getElementById("arrow");
 
 menu.classList.remove("show");
-
 arrow.textContent="▼";
 
 }
 
-
 document.addEventListener("click",function(event){
 
-const dropdown=
-document.querySelector(".dropdown");
+const dropdown=document.querySelector(".dropdown");
 
 if(!dropdown.contains(event.target)){
 closeProducts();
@@ -972,12 +460,13 @@ closeProducts();
 });
 
 
-/* PAGE NAVIGATION */
+/* =========================
+   PAGES
+========================= */
 
 function showPage(id){
 
-document.querySelectorAll(".page")
-.forEach(function(page){
+document.querySelectorAll(".page").forEach(function(page){
 page.classList.remove("active");
 });
 
@@ -997,25 +486,27 @@ behavior:"smooth"
 }
 
 
-/* ROBUX */
+/* =========================
+   ROBUX
+========================= */
 
 function calculateRobux(){
 
 clearError("robuxError");
 
-const qty=
-Number(document.getElementById("robuxQty").value);
+const qty=Number(
+document.getElementById("robuxQty").value
+);
 
 if(!qty){
 
-document.getElementById("robuxTotal")
-.textContent="$0.00";
+document.getElementById("robuxTotal").textContent="$0.00";
 
 return;
 
 }
 
-const price=qty/1000*1.75;
+const price=(qty/1000)*1.75;
 
 document.getElementById("robuxTotal")
 .textContent="$"+price.toFixed(2);
@@ -1031,13 +522,13 @@ showError(
 
 }
 
-
 function checkoutRobux(){
 
 clearError("robuxError");
 
-const qty=
-Number(document.getElementById("robuxQty").value);
+const qty=Number(
+document.getElementById("robuxQty").value
+);
 
 if(!qty || qty<=0){
 
@@ -1050,7 +541,7 @@ return;
 
 }
 
-const price=qty/1000*1.75;
+const price=(qty/1000)*1.75;
 
 if(price<10){
 
@@ -1072,7 +563,9 @@ prepareCheckout();
 }
 
 
-/* FIXED PRODUCTS */
+/* =========================
+   FIXED PRODUCTS
+========================= */
 
 function selectFixed(name,price){
 
@@ -1085,20 +578,9 @@ prepareCheckout();
 }
 
 
-function selectLimited(name){
-
-showPage("checkout");
-
-showError(
-"siteError",
-name+
-" is selected, but its authorized price has not been configured yet."
-);
-
-}
-
-
-/* CHECKOUT */
+/* =========================
+   CHECKOUT
+========================= */
 
 function prepareCheckout(){
 
@@ -1135,7 +617,9 @@ showPage("checkout");
 }
 
 
-/* DISCOUNT */
+/* =========================
+   DISCOUNT
+========================= */
 
 function applyDiscount(){
 
@@ -1165,9 +649,7 @@ return;
 
 const code=
 document.getElementById("discount")
-.value
-.trim()
-.toUpperCase();
+.value.trim().toUpperCase();
 
 if(code!=="WELCOME10"){
 
@@ -1180,7 +662,7 @@ return;
 
 }
 
-finalPrice=basePrice*.90;
+finalPrice=basePrice*0.90;
 discountUsed=true;
 
 document.getElementById("checkoutPrice")
@@ -1191,12 +673,12 @@ showSuccess(
 "10% discount applied successfully."
 );
 
-showCryptoPayment();
-
 }
 
 
-/* CRYPTO */
+/* =========================
+   CRYPTO PAYMENT
+========================= */
 
 async function showCryptoPayment(){
 
@@ -1238,11 +720,9 @@ const usd=data[ids[crypto]].usd;
 
 const cryptoAmount=finalPrice/usd;
 
-const decimals=
-crypto==="SOL"?6:8;
+const decimals=crypto==="SOL"?6:8;
 
-const amount=
-cryptoAmount.toFixed(decimals);
+const amount=cryptoAmount.toFixed(decimals);
 
 const address=wallets[crypto];
 
@@ -1278,13 +758,10 @@ onclick="copyText('${address}')">
 COPY ADDRESS
 </button>
 
-<div
-style="margin-top:12px;font-size:12px;color:#8498b4">
-
+<div style="margin-top:12px;font-size:12px;color:#8498b4">
 Reference rate:
 $${Number(usd).toLocaleString()}
 per ${crypto}.
-
 </div>
 `;
 
@@ -1305,7 +782,9 @@ box.classList.add("hidden");
 }
 
 
-/* COPY */
+/* =========================
+   COPY
+========================= */
 
 async function copyText(text){
 
@@ -1330,7 +809,9 @@ showError(
 }
 
 
-/* CREATE ORDER */
+/* =========================
+   CREATE ORDER
+========================= */
 
 async function createOrder(){
 
@@ -1346,7 +827,6 @@ document.getElementById("crypto")
 
 let valid=true;
 
-
 if(!product){
 
 showError(
@@ -1358,7 +838,6 @@ valid=false;
 
 }
 
-
 if(!email){
 
 showError(
@@ -1368,7 +847,10 @@ showError(
 
 valid=false;
 
-}else if(!email.includes("@")){
+}else if(
+!email.includes("@") ||
+!email.includes(".")
+){
 
 showError(
 "emailError",
@@ -1378,7 +860,6 @@ showError(
 valid=false;
 
 }
-
 
 if(!crypto){
 
@@ -1391,16 +872,13 @@ valid=false;
 
 }
 
-
 if(!valid)return;
-
 
 const button=
 document.getElementById("sentButton");
 
 button.disabled=true;
 button.textContent="Creating Order...";
-
 
 try{
 
@@ -1419,31 +897,26 @@ body:JSON.stringify({
 product:product,
 amount:finalPrice,
 crypto:crypto,
-email:email,
-wallet:wallets[crypto]
+email:email
 
 })
 
 }
 );
 
-
 const data=
 await response.json();
-
 
 if(!response.ok){
 
 throw new Error(
-data.error||
+data.error ||
 "Unable to create the order."
 );
 
 }
 
-
 orderId=data.orderId;
-
 
 document.getElementById("statusBox")
 .classList.remove("hidden");
@@ -1464,12 +937,11 @@ button.textContent="Payment Submitted";
 
 pollOrderStatus();
 
-
 }catch(error){
 
 showError(
 "siteError",
-error.message||
+error.message ||
 "Something went wrong while creating your order."
 );
 
@@ -1481,7 +953,9 @@ button.textContent="I Have Sent";
 }
 
 
-/* ORDER STATUS */
+/* =========================
+   ORDER STATUS
+========================= */
 
 async function pollOrderStatus(){
 
@@ -1499,7 +973,6 @@ encodeURIComponent(orderId)
 const data=
 await response.json();
 
-
 if(data.status==="received"){
 
 document.getElementById("checking")
@@ -1510,12 +983,11 @@ document.getElementById("received")
 
 document.getElementById("statusText")
 .textContent=
-"Payment received. Check your email for your digital product information.";
+"Payment received. Your order will be fulfilled after payment confirmation.";
 
 return;
 
 }
-
 
 if(data.status==="checking"){
 
@@ -1531,12 +1003,10 @@ document.getElementById("statusText")
 
 }
 
-
 setTimeout(
 pollOrderStatus,
 10000
 );
-
 
 }catch(error){
 
