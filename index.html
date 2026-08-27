@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Eldarodo</title>
+<title>AnythingGameStore</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -141,6 +141,11 @@ text-decoration:none;
 
 .btn:hover{background:#0874dc}
 
+.btn:disabled{
+opacity:.6;
+cursor:not-allowed;
+}
+
 section{
 max-width:1200px;
 margin:auto;
@@ -271,6 +276,43 @@ display:block;
 margin:7px 0;
 }
 
+.address{
+word-break:break-all;
+color:#58b5ff;
+background:#060c18;
+padding:13px;
+border-radius:8px;
+margin-top:10px;
+font-size:13px;
+line-height:1.5;
+}
+
+.smallbtn{
+margin-top:10px;
+background:#172c4b;
+}
+
+.status{
+display:flex;
+gap:8px;
+margin:25px 0;
+}
+
+.step{
+flex:1;
+text-align:center;
+padding:12px 5px;
+border-radius:7px;
+background:#101c30;
+color:#687c99;
+font-size:11px;
+}
+
+.step.active{
+background:#087bd5;
+color:#fff;
+}
+
 .hidden{display:none!important}
 
 footer{
@@ -309,6 +351,8 @@ transform:translateX(-50%);
 
 .checkout{padding:23px}
 
+.status{flex-direction:column}
+
 }
 </style>
 </head>
@@ -317,7 +361,9 @@ transform:translateX(-50%);
 
 <header>
 
-<div class="logo">Eldarodo</div>
+<div class="logo">
+AnythingGameStore
+</div>
 
 <nav>
 
@@ -327,32 +373,39 @@ Home
 
 <div class="dropdown">
 
-<button class="dropbtn" onclick="toggleProducts(event)">
+<button
+class="dropbtn"
+onclick="toggleProducts(event)">
 Products <span id="arrow">▼</span>
 </button>
 
 <div id="productMenu" class="dropdown-content">
 
-<a href="#" onclick="showPage('robux');closeProducts();return false;">
+<a href="#"
+onclick="showPage('robux');closeProducts();return false;">
 Roblox → Robux
 </a>
 
-<a href="#" onclick="showPage('limiteds');closeProducts();return false;">
+<a href="#"
+onclick="showPage('limiteds');closeProducts();return false;">
 Roblox → Limiteds
 </a>
 
-<a href="#" onclick="showPage('eldarodo');closeProducts();return false;">
+<a href="#"
+onclick="showPage('eldarodo');closeProducts();return false;">
 Eldarodo
 </a>
 
 </div>
 </div>
 
-<a href="#" onclick="showPage('checkout');return false;">
+<a href="#"
+onclick="showPage('checkout');return false;">
 Checkout
 </a>
 
-<a href="https://t.me/eldosupport"
+<a
+href="https://t.me/eldosupport"
 target="_blank"
 rel="noopener">
 Contact Us
@@ -369,7 +422,7 @@ Contact Us
 <section class="hero">
 
 <h1>
-Welcome to <span class="blue">Eldarodo</span>
+Welcome to <span class="blue">AnythingGameStore</span>
 </h1>
 
 <p>
@@ -382,7 +435,9 @@ Digital gaming products with cryptocurrency checkout.
 
 <br>
 
-<button class="btn" onclick="showPage('robux')">
+<button
+class="btn"
+onclick="showPage('robux')">
 Shop Products
 </button>
 
@@ -401,10 +456,12 @@ What are you looking for?
 <h3>Robux</h3>
 
 <p>
-Choose the amount of Robux you want.
+Choose the amount of Robux you want and continue to checkout.
 </p>
 
-<button class="btn" onclick="showPage('robux')">
+<button
+class="btn"
+onclick="showPage('robux')">
 View Robux
 </button>
 
@@ -416,10 +473,12 @@ View Robux
 <h3>Limiteds</h3>
 
 <p>
-Browse Headless, Dominus Frigidus and Korblox.
+Browse the available Headless, Dominus and Korblox listings.
 </p>
 
-<button class="btn" onclick="showPage('limiteds')">
+<button
+class="btn"
+onclick="showPage('limiteds')">
 View Limiteds
 </button>
 
@@ -434,7 +493,9 @@ View Limiteds
 View available Eldarodo products.
 </p>
 
-<button class="btn" onclick="showPage('eldarodo')">
+<button
+class="btn"
+onclick="showPage('eldarodo')">
 View Eldarodo
 </button>
 
@@ -453,7 +514,9 @@ View Eldarodo
 
 <section>
 
-<h2 class="title">Robux</h2>
+<h2 class="title">
+Robux
+</h2>
 
 <div class="checkout">
 
@@ -486,11 +549,15 @@ Minimum purchase: <strong>$10</strong>.
 
 Your total:
 
-<span id="robuxTotal" class="amount">$0.00</span>
+<span id="robuxTotal" class="amount">
+$0.00
+</span>
 
 </div>
 
-<button class="btn" onclick="checkoutRobux()">
+<button
+class="btn"
+onclick="checkoutRobux()">
 Continue to Checkout
 </button>
 
@@ -513,26 +580,23 @@ Roblox Limiteds
 
 <div class="products">
 
-
 <div class="card">
 
-<img
+<div
 class="product-image"
-src="https://tr.rbxcdn.com/180DAY-1d1b3d0f4e0e3b0f5d0f8b0d0b0b0b0b/420/420/Hat/Webp/noFilter"
-alt="Headless"
->
+style="display:flex;align-items:center;justify-content:center;color:#58708f">
+YOUR IMAGE
+</div>
 
 <h3>Headless</h3>
 
-<p>
-Headless listing.
-</p>
+<p>Headless listing.</p>
 
-<div class="price">$40</div>
+<div class="price">Contact</div>
 
 <button
 class="btn"
-onclick="selectFixed('Headless',40)">
+onclick="selectLimited('Headless')">
 Select
 </button>
 
@@ -541,23 +605,21 @@ Select
 
 <div class="card">
 
-<img
+<div
 class="product-image"
-src="https://tr.rbxcdn.com/180DAY-8a8c4b2f2c3f0f8f5d3a7a0f7b6a4d1e/420/420/Hat/Webp/noFilter"
-alt="Dominus Frigidus"
->
+style="display:flex;align-items:center;justify-content:center;color:#58708f">
+YOUR IMAGE
+</div>
 
-<h3>Dominus Frigidus</h3>
+<h3>Dominus</h3>
 
-<p>
-Dominus Frigidus listing.
-</p>
+<p>Dominus listing.</p>
 
-<div class="price">$50</div>
+<div class="price">Contact</div>
 
 <button
 class="btn"
-onclick="selectFixed('Dominus Frigidus',50)">
+onclick="selectLimited('Dominus')">
 Select
 </button>
 
@@ -566,23 +628,21 @@ Select
 
 <div class="card">
 
-<img
+<div
 class="product-image"
-src="https://tr.rbxcdn.com/180DAY-2b3f4a5d6c7e8f901234567890abcdef/420/420/Bundle/Webp/noFilter"
-alt="Korblox"
->
+style="display:flex;align-items:center;justify-content:center;color:#58708f">
+YOUR IMAGE
+</div>
 
 <h3>Korblox</h3>
 
-<p>
-Korblox listing.
-</p>
+<p>Korblox listing.</p>
 
-<div class="price">$35</div>
+<div class="price">Contact</div>
 
 <button
 class="btn"
-onclick="selectFixed('Korblox',35)">
+onclick="selectLimited('Korblox')">
 Select
 </button>
 
@@ -609,13 +669,17 @@ Eldarodo
 
 <div class="card">
 
-<h3>Eldarodo Product</h3>
+<h3>
+Eldarodo Product
+</h3>
 
 <p>
 Authorized Eldarodo product.
 </p>
 
-<div class="price">$15</div>
+<div class="price">
+$15
+</div>
 
 <button
 class="btn"
@@ -698,7 +762,9 @@ Apply Code
 Cryptocurrency
 </label>
 
-<select id="crypto" onchange="showCryptoAmount()">
+<select
+id="crypto"
+onchange="showCryptoPayment()">
 
 <option value="">
 Select cryptocurrency
@@ -714,6 +780,46 @@ Select cryptocurrency
 
 <div id="cryptoBox" class="notice hidden"></div>
 
+
+<button
+id="sentButton"
+class="btn hidden"
+style="width:100%;margin-top:15px"
+onclick="createOrder()">
+
+I Have Sent
+
+</button>
+
+
+<div id="statusBox" class="hidden">
+
+<div class="status">
+
+<div id="pending" class="step active">
+PENDING
+</div>
+
+<div id="checking" class="step">
+CHECKING BLOCKCHAIN
+</div>
+
+<div id="received" class="step">
+RECEIVED
+</div>
+
+</div>
+
+<p
+id="statusText"
+style="text-align:center;color:#aebdd5;line-height:1.6">
+
+Waiting for payment.
+
+</p>
+
+</div>
+
 </div>
 
 </section>
@@ -724,15 +830,18 @@ Select cryptocurrency
 <footer>
 
 <p>
-© 2026 Eldarodo
+© 2026 AnythingGameStore
 </p>
 
 <p style="margin-top:10px">
-<a href="https://t.me/eldosupport"
+
+<a
+href="https://t.me/eldosupport"
 target="_blank"
 rel="noopener">
 @eldosupport
 </a>
+
 </p>
 
 </footer>
@@ -740,13 +849,29 @@ rel="noopener">
 
 <script>
 
+const WORKER_URL =
+"https://eldosell-payment.austind1001.workers.dev";
+
+
+const wallets={
+
+BTC:"bc1q2730dvv78t5aujjfzfx2ch70usjamxu66wjj9m",
+
+LTC:"LT7L9BdyBEQnXJ3tYSbijDqVymPjv7VKg2",
+
+SOL:"37g7zgpPmKW7hGaov4nKE8vPRtWLDXThcDaUR9HaZG52"
+
+};
+
+
 let product="";
-let basePrice=0;
 let finalPrice=0;
+let basePrice=0;
+let orderId=null;
 let discountUsed=false;
 
 
-/* ERROR / SUCCESS */
+/* ON-SITE MESSAGES */
 
 function showError(id,message){
 
@@ -759,6 +884,7 @@ box.classList.add("show");
 
 }
 
+
 function clearError(id){
 
 const box=document.getElementById(id);
@@ -769,6 +895,20 @@ box.textContent="";
 box.classList.remove("show");
 
 }
+
+
+function clearAllErrors(){
+
+[
+"siteError",
+"emailError",
+"discountError",
+"cryptoError",
+"robuxError"
+].forEach(clearError);
+
+}
+
 
 function showSuccess(id,message){
 
@@ -789,29 +929,41 @@ function toggleProducts(event){
 event.preventDefault();
 event.stopPropagation();
 
-const menu=document.getElementById("productMenu");
-const arrow=document.getElementById("arrow");
+const menu=
+document.getElementById("productMenu");
+
+const arrow=
+document.getElementById("arrow");
 
 menu.classList.toggle("show");
 
 arrow.textContent=
-menu.classList.contains("show") ? "▲" : "▼";
+menu.classList.contains("show")
+?"▲"
+:"▼";
 
 }
+
 
 function closeProducts(){
 
-document.getElementById("productMenu")
-.classList.remove("show");
+const menu=
+document.getElementById("productMenu");
 
-document.getElementById("arrow")
-.textContent="▼";
+const arrow=
+document.getElementById("arrow");
+
+menu.classList.remove("show");
+
+arrow.textContent="▼";
 
 }
 
+
 document.addEventListener("click",function(event){
 
-const dropdown=document.querySelector(".dropdown");
+const dropdown=
+document.querySelector(".dropdown");
 
 if(!dropdown.contains(event.target)){
 closeProducts();
@@ -825,7 +977,7 @@ closeProducts();
 function showPage(id){
 
 document.querySelectorAll(".page")
-.forEach(page=>{
+.forEach(function(page){
 page.classList.remove("active");
 });
 
@@ -851,9 +1003,8 @@ function calculateRobux(){
 
 clearError("robuxError");
 
-const qty=Number(
-document.getElementById("robuxQty").value
-);
+const qty=
+Number(document.getElementById("robuxQty").value);
 
 if(!qty){
 
@@ -861,6 +1012,7 @@ document.getElementById("robuxTotal")
 .textContent="$0.00";
 
 return;
+
 }
 
 const price=qty/1000*1.75;
@@ -879,13 +1031,13 @@ showError(
 
 }
 
+
 function checkoutRobux(){
 
 clearError("robuxError");
 
-const qty=Number(
-document.getElementById("robuxQty").value
-);
+const qty=
+Number(document.getElementById("robuxQty").value);
 
 if(!qty || qty<=0){
 
@@ -933,16 +1085,27 @@ prepareCheckout();
 }
 
 
+function selectLimited(name){
+
+showPage("checkout");
+
+showError(
+"siteError",
+name+
+" is selected, but its authorized price has not been configured yet."
+);
+
+}
+
+
 /* CHECKOUT */
 
 function prepareCheckout(){
 
 discountUsed=false;
+orderId=null;
 
-clearError("siteError");
-clearError("emailError");
-clearError("discountError");
-clearError("cryptoError");
+clearAllErrors();
 
 document.getElementById("siteSuccess")
 .classList.remove("show");
@@ -957,6 +1120,12 @@ document.getElementById("discount").value="";
 document.getElementById("crypto").value="";
 
 document.getElementById("cryptoBox")
+.classList.add("hidden");
+
+document.getElementById("sentButton")
+.classList.add("hidden");
+
+document.getElementById("statusBox")
 .classList.add("hidden");
 
 document.getElementById("email").value="";
@@ -994,8 +1163,11 @@ return;
 
 }
 
-const code=document.getElementById("discount")
-.value.trim().toUpperCase();
+const code=
+document.getElementById("discount")
+.value
+.trim()
+.toUpperCase();
 
 if(code!=="WELCOME10"){
 
@@ -1009,7 +1181,6 @@ return;
 }
 
 finalPrice=basePrice*.90;
-
 discountUsed=true;
 
 document.getElementById("checkoutPrice")
@@ -1020,22 +1191,24 @@ showSuccess(
 "10% discount applied successfully."
 );
 
-showCryptoAmount();
+showCryptoPayment();
 
 }
 
 
-/* CRYPTO AMOUNT DISPLAY */
+/* CRYPTO */
 
-async function showCryptoAmount(){
+async function showCryptoPayment(){
 
 clearError("cryptoError");
 
-const crypto=document.getElementById("crypto").value;
+const crypto=
+document.getElementById("crypto").value;
 
 if(!crypto || !product)return;
 
-const box=document.getElementById("cryptoBox");
+const box=
+document.getElementById("cryptoBox");
 
 box.classList.remove("hidden");
 
@@ -1050,7 +1223,8 @@ LTC:"litecoin",
 SOL:"solana"
 };
 
-const response=await fetch(
+const response=
+await fetch(
 "https://api.coingecko.com/api/v3/simple/price?ids="+
 ids[crypto]+
 "&vs_currencies=usd"
@@ -1062,11 +1236,15 @@ const data=await response.json();
 
 const usd=data[ids[crypto]].usd;
 
-const amount=finalPrice/usd;
+const cryptoAmount=finalPrice/usd;
 
-const decimals=crypto==="SOL"?6:8;
+const decimals=
+crypto==="SOL"?6:8;
 
-const formatted=amount.toFixed(decimals);
+const amount=
+cryptoAmount.toFixed(decimals);
+
+const address=wallets[crypto];
 
 box.innerHTML=`
 
@@ -1074,31 +1252,50 @@ box.innerHTML=`
 
 <br><br>
 
-<strong>EXACT AMOUNT</strong>
+<strong>EXACT AMOUNT TO SEND</strong>
 
 <span class="amount">
-${formatted} ${crypto}
+${amount} ${crypto}
 </span>
 
 <button
-class="btn"
-style="margin-top:10px"
-onclick="copyText('${formatted} ${crypto}')">
+class="btn smallbtn"
+onclick="copyText('${amount} ${crypto}')">
 COPY AMOUNT
 </button>
 
-<div style="margin-top:14px;color:#8498b4;font-size:12px">
-Reference rate: $${Number(usd).toLocaleString()}
-per ${crypto}.
+<br><br>
+
+<strong>SEND TO</strong>
+
+<div class="address">
+${address}
 </div>
 
+<button
+class="btn smallbtn"
+onclick="copyText('${address}')">
+COPY ADDRESS
+</button>
+
+<div
+style="margin-top:12px;font-size:12px;color:#8498b4">
+
+Reference rate:
+$${Number(usd).toLocaleString()}
+per ${crypto}.
+
+</div>
 `;
+
+document.getElementById("sentButton")
+.classList.remove("hidden");
 
 }catch(error){
 
 showError(
 "cryptoError",
-"Unable to load the current cryptocurrency price."
+"Unable to load the current cryptocurrency price. Please try again."
 );
 
 box.classList.add("hidden");
@@ -1125,7 +1322,227 @@ showSuccess(
 
 showError(
 "siteError",
-"Copy failed. Please copy it manually."
+"Copy failed. Please copy the value manually."
+);
+
+}
+
+}
+
+
+/* CREATE ORDER */
+
+async function createOrder(){
+
+clearAllErrors();
+
+const email=
+document.getElementById("email")
+.value.trim();
+
+const crypto=
+document.getElementById("crypto")
+.value;
+
+let valid=true;
+
+
+if(!product){
+
+showError(
+"siteError",
+"Please choose a product first."
+);
+
+valid=false;
+
+}
+
+
+if(!email){
+
+showError(
+"emailError",
+"Please enter your email address."
+);
+
+valid=false;
+
+}else if(!email.includes("@")){
+
+showError(
+"emailError",
+"Please enter a valid email address."
+);
+
+valid=false;
+
+}
+
+
+if(!crypto){
+
+showError(
+"cryptoError",
+"Please select BTC, LTC, or SOL."
+);
+
+valid=false;
+
+}
+
+
+if(!valid)return;
+
+
+const button=
+document.getElementById("sentButton");
+
+button.disabled=true;
+button.textContent="Creating Order...";
+
+
+try{
+
+const response=
+await fetch(
+WORKER_URL+"/create-order",
+{
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+product:product,
+amount:finalPrice,
+crypto:crypto,
+email:email,
+wallet:wallets[crypto]
+
+})
+
+}
+);
+
+
+const data=
+await response.json();
+
+
+if(!response.ok){
+
+throw new Error(
+data.error||
+"Unable to create the order."
+);
+
+}
+
+
+orderId=data.orderId;
+
+
+document.getElementById("statusBox")
+.classList.remove("hidden");
+
+document.getElementById("pending")
+.classList.remove("active");
+
+document.getElementById("checking")
+.classList.add("active");
+
+document.getElementById("statusText")
+.textContent=
+"Order "+
+orderId+
+" created. Checking blockchain for payment...";
+
+button.textContent="Payment Submitted";
+
+pollOrderStatus();
+
+
+}catch(error){
+
+showError(
+"siteError",
+error.message||
+"Something went wrong while creating your order."
+);
+
+button.disabled=false;
+button.textContent="I Have Sent";
+
+}
+
+}
+
+
+/* ORDER STATUS */
+
+async function pollOrderStatus(){
+
+if(!orderId)return;
+
+try{
+
+const response=
+await fetch(
+WORKER_URL+
+"/order-status?id="+
+encodeURIComponent(orderId)
+);
+
+const data=
+await response.json();
+
+
+if(data.status==="received"){
+
+document.getElementById("checking")
+.classList.remove("active");
+
+document.getElementById("received")
+.classList.add("active");
+
+document.getElementById("statusText")
+.textContent=
+"Payment received. Check your email for your digital product information.";
+
+return;
+
+}
+
+
+if(data.status==="checking"){
+
+document.getElementById("pending")
+.classList.remove("active");
+
+document.getElementById("checking")
+.classList.add("active");
+
+document.getElementById("statusText")
+.textContent=
+"Checking blockchain for your payment...";
+
+}
+
+
+setTimeout(
+pollOrderStatus,
+10000
+);
+
+
+}catch(error){
+
+setTimeout(
+pollOrderStatus,
+10000
 );
 
 }
