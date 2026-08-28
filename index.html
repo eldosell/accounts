@@ -405,6 +405,10 @@ Eldorado
 Checkout
 </a>
 
+<a href="#" onclick="showPage('reviews');return false;">
+Reviews
+</a>
+
 <a href="https://t.me/eldosupport"
 target="_blank"
 rel="noopener">
@@ -866,6 +870,51 @@ Waiting for payment.
 </div>
 
 </div>
+
+</section>
+
+</div>
+
+
+<!-- REVIEWS -->
+
+<div id="reviews" class="page">
+
+<section>
+
+<h2 class="title">Customer Reviews</h2>
+
+<div class="checkout" style="margin-bottom:30px;">
+
+<h3>Add a Review</h3>
+
+<label for="reviewName">Name</label>
+<input id="reviewName" type="text" maxlength="40" placeholder="Your name">
+
+<label for="reviewRating">Rating</label>
+<select id="reviewRating">
+<option value="5">★★★★★ — 5 Stars</option>
+<option value="4">★★★★☆ — 4 Stars</option>
+<option value="3">★★★☆☆ — 3 Stars</option>
+<option value="2">★★☆☆☆ — 2 Stars</option>
+<option value="1">★☆☆☆☆ — 1 Star</option>
+</select>
+
+<label for="reviewText">Review</label>
+<textarea id="reviewText" maxlength="500" placeholder="Write your review..." style="width:100%;min-height:110px;padding:14px;background:#060c18;border:1px solid #29415f;border-radius:9px;color:#fff;font:700 14px Inter,Arial,sans-serif;resize:vertical;"></textarea>
+
+<label for="reviewProof">Screenshot Proof</label>
+<input id="reviewProof" type="file" accept="image/*" style="padding:10px;">
+
+<div id="reviewError" class="error-message"></div>
+
+<button class="btn" style="margin-top:15px;width:100%;" onclick="addReview()">
+Add Review
+</button>
+
+</div>
+
+<div id="reviewsList"></div>
 
 </section>
 
@@ -1642,6 +1691,143 @@ button.textContent=
 }
 
 }
+
+
+/* =========================
+   REVIEWS
+========================= */
+
+function loadReviews(){
+
+const list=document.getElementById("reviewsList");
+if(!list)return;
+
+const reviews=JSON.parse(localStorage.getItem("ags_reviews")||"[]");
+
+if(!reviews.length){
+list.innerHTML=`
+<div class="card" style="text-align:center;">
+<p style="color:#9eafc8;">No reviews yet. Be the first to leave one.</p>
+</div>`;
+return;
+}
+
+list.innerHTML=reviews.map(function(review){
+
+const stars="★".repeat(review.rating)+"☆".repeat(5-review.rating);
+
+return `
+<div class="card" style="margin-bottom:20px;">
+<div style="display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap;">
+<h3>${escapeReviewHTML(review.name)}</h3>
+<span style="color:#ffd34d;font-size:20px;">${stars}</span>
+</div>
+
+<p style="margin-top:12px;">${escapeReviewHTML(review.text)}</p>
+
+${review.proof ? `
+<img src="${review.proof}"
+alt="Screenshot proof"
+style="width:100%;max-height:450px;object-fit:contain;background:#060c18;border-radius:10px;margin-top:15px;">
+` : ""}
+
+<p style="color:#71839e;font-size:11px;margin-top:12px;">
+${escapeReviewHTML(review.date)}
+</p>
+</div>
+`;
+
+}).join("");
+
+}
+
+function escapeReviewHTML(value){
+
+return String(value)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+function addReview(){
+
+clearError("reviewError");
+
+const name=document.getElementById("reviewName").value.trim();
+const rating=Number(document.getElementById("reviewRating").value);
+const reviewText=document.getElementById("reviewText").value.trim();
+const file=document.getElementById("reviewProof").files[0];
+
+if(!name){
+showError("reviewError","Please enter your name.");
+return;
+}
+
+if(!reviewText){
+showError("reviewError","Please write a review.");
+return;
+}
+
+if(!rating || rating<1 || rating>5){
+showError("reviewError","Please select a star rating.");
+return;
+}
+
+function saveReview(proof){
+
+const reviews=JSON.parse(localStorage.getItem("ags_reviews")||"[]");
+
+reviews.unshift({
+name:name,
+rating:rating,
+text:reviewText,
+proof:proof||"",
+date:new Date().toLocaleString()
+});
+
+localStorage.setItem("ags_reviews",JSON.stringify(reviews));
+
+document.getElementById("reviewName").value="";
+document.getElementById("reviewText").value="";
+document.getElementById("reviewProof").value="";
+
+showSuccess("reviewError","Review added successfully.");
+loadReviews();
+
+}
+
+if(file){
+
+if(!file.type.startsWith("image/")){
+showError("reviewError","Please upload an image for screenshot proof.");
+return;
+}
+
+if(file.size>5*1024*1024){
+showError("reviewError","Screenshot proof must be 5 MB or smaller.");
+return;
+}
+
+const reader=new FileReader();
+
+reader.onload=function(){
+saveReview(reader.result);
+};
+
+reader.readAsDataURL(file);
+
+}else{
+
+saveReview("");
+
+}
+
+}
+
+loadReviews();
 
 </script>
 
