@@ -505,12 +505,20 @@ View Eldorado
 
 <h2 class="title">Robux</h2>
 
+<div style="max-width:650px;margin:0 auto 25px;padding:18px 22px;background:#32131a;border:1px solid #a83248;border-radius:10px;text-align:center;color:#ff3b4f;font-size:17px;line-height:1.6;font-weight:700;">
+*ROBUX WILL BE DELIVERED WITH ROBLOX PLUS SO NO 30% TAX YOU WILL RECIEVE ALL*
+</div>
+
 <div class="checkout">
 
 <h3>Robux</h3>
 
 <p style="color:#9eafc8;margin-top:10px">
 $1.75 per 1,000 Robux
+</p>
+
+<p style="margin-top:16px;color:#58b5ff;font-size:17px;">
+Current Stock: <strong>548,984 Robux</strong>
 </p>
 
 <label for="robuxQty">
@@ -648,6 +656,10 @@ Buy Now
 <h2 class="title">
 Eldorado Verified Account
 </h2>
+
+<div style="max-width:800px;margin:0 auto 25px;padding:18px 22px;background:#32131a;border:1px solid #a83248;border-radius:10px;text-align:center;color:#ff3b4f;font-size:17px;line-height:1.6;font-weight:700;">
+*CHECK THE EMAIL YOU TYPE IN FOR THE ACCOUNT EMAIL AND PASSWORD*
+</div>
 
 <div class="products">
 
@@ -1434,6 +1446,15 @@ showError(
 async function createOrder(){
 
 clearAllErrors();
+
+/* Always require the customer to send the payment first.
+   This intentionally stops checkout from creating/submitting an order. */
+showError(
+"siteError",
+"You haven't sent the money yet. Please send the exact payment amount to the address above, then try again."
+);
+
+return;
 
 const email=
 document.getElementById("email")
