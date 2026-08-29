@@ -398,6 +398,10 @@ Roblox → Limiteds
 Eldorado
 </a>
 
+<a href="#" onclick="showPage('donutsmp');return false;">
+DonutSMP
+</a>
+
 </div>
 </div>
 
@@ -491,6 +495,20 @@ View available Eldorado products.
 
 <button class="btn" onclick="showPage('eldorado')">
 View Eldorado
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>DonutSMP</h3>
+
+<p>
+Buy DonutSMP money at $12.50 per 1 billion.
+</p>
+
+<button class="btn" onclick="showPage('donutsmp')">
+View DonutSMP
 </button>
 
 </div>
@@ -737,6 +755,60 @@ Buy Now
 
 </div>
 
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- DONUTSMP -->
+
+<div id="donutsmp" class="page">
+
+<section>
+
+<h2 class="title">DonutSMP</h2>
+
+<div class="checkout">
+
+<h3>DonutSMP Money</h3>
+
+<p style="color:#9eafc8;margin-top:10px">
+$12.50 per 1 billion
+</p>
+
+<label for="donutQty">
+How many billion do you want?
+</label>
+
+<input
+id="donutQty"
+type="number"
+min="1"
+step="1"
+placeholder="Example: 5"
+oninput="calculateDonutSMP()"
+>
+
+<div id="donutError" class="error-message"></div>
+
+<div class="notice">
+
+Minimum purchase: <strong>1 billion</strong>.
+
+<br><br>
+
+Your total:
+
+<span id="donutTotal" class="amount">$0.00</span>
+
+</div>
+
+<button class="btn" onclick="checkoutDonutSMP()">
+Continue to Checkout
+</button>
 
 </div>
 
@@ -1178,6 +1250,69 @@ qty+" Robux";
 
 basePrice=price;
 finalPrice=price;
+
+prepareCheckout();
+
+}
+
+
+/* =========================
+   DONUTSMP
+========================= */
+
+function calculateDonutSMP(){
+
+clearError("donutError");
+
+const qty=
+Number(
+document.getElementById("donutQty").value
+);
+
+if(!qty){
+
+document.getElementById("donutTotal")
+.textContent="$0.00";
+
+return;
+
+}
+
+const price=qty*12.50;
+
+document.getElementById("donutTotal")
+.textContent=
+"$"+price.toFixed(2);
+
+}
+
+
+function checkoutDonutSMP(){
+
+clearError("donutError");
+
+const qty=
+Number(
+document.getElementById("donutQty").value
+);
+
+if(!qty || qty<1){
+
+showError(
+"donutError",
+"Please enter at least 1 billion."
+);
+
+return;
+
+}
+
+product=
+qty+" Billion DonutSMP Money";
+
+basePrice=qty*12.50;
+
+finalPrice=basePrice;
 
 prepareCheckout();
 
